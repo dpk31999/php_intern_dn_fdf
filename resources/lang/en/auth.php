@@ -14,7 +14,27 @@ return [
     */
 
     'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
+
+    'password' => 'Password',
+    'password-confirm' => 'Confirm Password',
+    'forgot-password' => 'Forgot Your Password?',
+    'continue' => 'Please confirm your password before continuing.',
+    'reset' => 'Reset Password',
+    'email' => 'E-Mail Address',
+    'send-email' => 'Send Password Reset Link',
+    'remember' => 'Remember Me',
+
+    'login' => 'Login',
+    'register' => 'Register',
+    'logout' => 'Logout',
+
+    'name' => 'name',
+    'verify-email' => 'Verify Your Email Address',
+    'resend' => 'A fresh verification link has been sent to your email address.',
+    'check-email' => 'Before proceeding, please check your email for a verification link.',
+    'no-receive' => 'If you did not receive the email',
+    'click-resend' => 'click here to request another',
 
 ];
