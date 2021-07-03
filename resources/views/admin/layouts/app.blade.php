@@ -27,19 +27,25 @@
 <body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-green sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.home') }}">
                 <div class="sidebar-brand-text mx-3">@lang('auth.title-admin')</div>
             </a>
             <hr class="sidebar-divider my-0">
             @auth('admin')
                 <li class="nav-item active">
-                    <a class="nav-link" href="" style="text-align: center"><span>@lang('auth.title-admin')</span></a>
+                    <a class="nav-link" href="{{ route('admin.home') }}" style="text-align: center"><span>@lang('auth.title-admin')</span></a>
                 </li>
 
                 <hr class="sidebar-divider">
 
                 <li class="nav-item">
-                    <a class="nav-link" id="btn_login" style="cursor: pointer"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('auth.logout')</span></a>
+                    <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-users fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('users.users')</span></a>
+                </li>
+
+                <hr class="sidebar-divider">
+
+                <li class="nav-item">
+                    <a class="nav-link" id="btn_login"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('auth.logout')</span></a>
                 </li>
             @endauth
 
