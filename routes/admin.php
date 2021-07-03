@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\ImageProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,10 @@ Route::namespace('Admin')->name('admin.')->group(function () {
         Route::resource('categories', '\App\Http\Controllers\Admin\CategoryController')->except([
             'show',
         ]);
+
+        Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
+
+        Route::post('/products/{product}/image', [ImageProductController::class, 'store'])->name('image.store');
+        Route::delete('/products/{id}/image', [ImageProductController::class, 'destroy'])->name('image.destroy');
     });
 });
