@@ -12,6 +12,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'description',
+        'type',
         'parent_id',
     ];
 
@@ -33,5 +34,10 @@ class Category extends Model
     public function parentCategory()
     {
         return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    public function scopeIsParent($query)
+    {
+        return $query->where('parent_id', null);
     }
 }
