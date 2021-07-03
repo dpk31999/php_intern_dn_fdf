@@ -24,5 +24,11 @@ Route::namespace('Admin')->name('admin.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
+
+        Route::resource('users', '\App\Http\Controllers\Admin\UserController')->only([
+            'index',
+            'show',
+            'destroy',
+        ]);
     });
 });
