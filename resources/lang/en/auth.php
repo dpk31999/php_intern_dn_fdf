@@ -13,6 +13,15 @@ return [
     |
     */
 
+    'title-admin' => 'Admin - Dashboard',
+    'title-manager' => 'Manager - Dashboard',
+
+    'welcome-to-login' => 'Login to Course Online Admin',
+
+    'admin' => 'Admin',
+    'manager' => 'Manager',
+    'copyright' => 'Copyright',
+
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
