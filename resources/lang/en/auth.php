@@ -39,6 +39,8 @@ return [
     'register' => 'Register',
     'logout' => 'Logout',
 
+    'logout-success' => 'Logout successful!',
+
     'name' => 'name',
     'verify-email' => 'Verify Your Email Address',
     'resend' => 'A fresh verification link has been sent to your email address.',

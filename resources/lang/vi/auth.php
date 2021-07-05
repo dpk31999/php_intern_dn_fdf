@@ -5,11 +5,13 @@ return [
     'title-admin' => 'Trang quản trị',
     'title-manager' => 'Trang quản lý',
 
-    'welcome-to-login' => 'Login to Course Online Admin',
+    'welcome-to-login' => 'Chào mừng đến với trang quản trị',
 
     'admin' => 'Quản trị viên',
     'manager' => 'Quản lý',
     'copyright' => 'Bản quyền',
+
+    'failed' => 'Thông tin đăng nhập chưa chính xác!.',
 
     'password' => 'Mật khẩu',
     'password-confirm' => 'Xác nhận mật khẩu',
@@ -23,6 +25,8 @@ return [
     'login' => 'Đăng nhập',
     'register' => 'Đăng ký',
     'logout' => 'Đăng xuất',
+
+    'logout-success' => 'Đăng xuất thành công!',
 
     'name' => 'Tên',
     'verify-email' => 'Xác thực email',
