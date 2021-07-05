@@ -17,9 +17,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'fullname',
         'email',
         'password',
+        'city',
+        'address',
+        'phone',
+        'avatar_path',
     ];
 
     /**
@@ -40,4 +44,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function favoriteProducts()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function ratings()
+    {
+        return $this->belongsToMany(Product::class, 'ratings', 'product_id', 'user_id')
+                    ->withPivot('num_rated', 'content');
+    }
+
+    public function suggestProducts()
+    {
+        return $this->belongsToMany(Category::class, 'suggest_products', 'cate_id', 'user_id')
+                    ->withPivot('name', 'status');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
