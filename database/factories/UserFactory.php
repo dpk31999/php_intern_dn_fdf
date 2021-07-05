@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserFactory extends Factory
 {
@@ -27,6 +28,11 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => Hash::make('password'),
+            'city' => $this->faker->city,
+            'address' => $this->faker->streetAddress,
+            'phone' => $this->faker->phoneNumber,
+            'avatar_path' => $this->faker->image($dir = './public/storage/avatar_path', 300, 300, null, false),
             'remember_token' => Str::random(10),
         ];
     }
