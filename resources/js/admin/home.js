@@ -81,4 +81,58 @@ $(document).ready(function () {
             },
         });
     });
+
+    // product
+    $('.btn-delete-image').on('click', function () {
+        var id = $(this).data('id');
+
+        var locale = $('meta[name="locale"]').attr('content');
+
+        var message;
+
+        locale == 'en' ? message = 'Do you want to delete this image?' : message = 'Có phải bạn muốn xoá hình ảnh này?';
+
+        if (!confirm(message)) {
+            return false;
+        }
+
+        $.ajax({
+            method: 'DELETE',
+            url: '/admin/products/' + id + '/image',
+            success: function (data) {
+                $('#image-' + id).remove();
+                $('#message').html('<div class="alert alert-success" role="alert">' + data.message + '</div>');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $('#message').html('<div class="alert alert-warning" role="alert">' + thrownError + '</div>');
+            },
+        });
+    });
+
+    $('.btn-delete-product').on('click', function () {
+        var id = $(this).data('id');
+
+        var locale = $('meta[name="locale"]').attr('content');
+
+        var message;
+
+        locale == 'en' ? message = 'Do you want to delete this product?' : message = 'Có phải bạn muốn xoá sản phẩm này?';
+
+        if (!confirm(message)) {
+            return false;
+        }
+
+        $.ajax({
+            method: 'DELETE',
+            url: '/admin/products/' + id,
+            success: function (data) {
+                $('#image-' + id).remove();
+                $('#message').html('<div class="alert alert-success" role="alert">' + data.message + '</div>');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $('#message').html('<div class="alert alert-warning" role="alert">' + thrownError + '</div>');
+            },
+        });
+    });
+
 });
