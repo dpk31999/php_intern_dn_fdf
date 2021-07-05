@@ -13,7 +13,6 @@ return [
     'edit' => 'Sửa',
     'delete' => 'Xoá',
     'edit-images' => 'Chỉnh sửa hình ảnh',
-
     'message-create-success' => 'Tạo sản phẩm thành công!',
     'message-create-fail' => 'Tạo sản phẩm thất bại!',
 
