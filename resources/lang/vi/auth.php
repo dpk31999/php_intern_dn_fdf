@@ -2,6 +2,15 @@
 
 return [
 
+    'title-admin' => 'Trang quản trị',
+    'title-manager' => 'Trang quản lý',
+
+    'welcome-to-login' => 'Login to Course Online Admin',
+
+    'admin' => 'Quản trị viên',
+    'manager' => 'Quản lý',
+    'copyright' => 'Bản quyền',
+
     'password' => 'Mật khẩu',
     'password-confirm' => 'Xác nhận mật khẩu',
     'forgot-password' => 'Quên mật khẩu ?',
