@@ -6,8 +6,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbars-rs-food">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">@lang('homepage.home')</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.menu')</a></li>
+                    <li class="nav-item {{ Route::is('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">@lang('homepage.home')</a></li>
+                    <li class="nav-item {{ Route::is('menu') ? 'active' : '' }}"><a class="nav-link" href="{{ route('menu') }}">@lang('homepage.menu')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.about')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.suggest')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.cart')</a></li>
