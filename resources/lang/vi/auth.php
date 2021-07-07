@@ -35,4 +35,7 @@ return [
     'no-receive' => 'Nếu không nhận được email',
     'click-resend' => 'Bấm vào đây để tạo liên kết mới',
 
+    'login-fb' => 'Đăng nhập với Facebook',
+    'dont-have-account' => 'Bạn chưa có tài khoản?',
+
 ];

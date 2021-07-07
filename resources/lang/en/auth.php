@@ -48,4 +48,7 @@ return [
     'no-receive' => 'If you did not receive the email',
     'click-resend' => 'click here to request another',
 
+    'login-fb' => 'Login with Facebook',
+    'dont-have-account' => 'Don\'t have an account?',
+
 ];
