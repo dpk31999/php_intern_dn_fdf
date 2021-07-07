@@ -13,10 +13,24 @@
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.cart')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.check-out')</a></li>
                     @guest('web')
-                        <li class="nav-item"><a class="nav-link" href="">@lang('homepage.login')</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">@lang('homepage.register')</a></li>
+                        <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalLogin">@lang('homepage.login')</a></li>
+                        <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalRegister">@lang('homepage.register')</a></li>
                     @else
-                        <li class="nav-item"><a class="nav-link" href="">{{ Auth::guard('web')->user()->name }}</a></li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span>{{ Auth::guard('web')->user()->name }}</strong></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <form id="logout-form" method="POST">
+                                    @csrf
+                                    <button class="dropdown-item cursor">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        @lang('auth.logout')
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
                     @endguest
                 </ul>
             </div>
