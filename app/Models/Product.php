@@ -23,7 +23,9 @@ class Product extends Model
 
     public function ratings()
     {
-        return $this->belongsToMany(User::class, 'ratings', 'product_id', 'user_id')->withPivot('num_rated', 'content');
+        return $this->belongsToMany(User::class, 'ratings', 'product_id', 'user_id')
+                    ->withPivot('num_rated', 'content')->withTimestamps()
+                    ->orderBy('pivot_created_at', 'desc');
     }
 
     public function images()
@@ -52,7 +54,7 @@ class Product extends Model
                 $total_star += $rating->pivot->num_rated;
             }
 
-            return $total_star / ($this->ratings->count());
+            return round($total_star / ($this->ratings->count()), 1);
         }
     }
 
@@ -64,5 +66,18 @@ class Product extends Model
     public function scopeOfCategory($query, $id)
     {
         return $query->where('cate_id', $id);
+    }
+
+    public function getNumbOfRating($num_star)
+    {
+        $count = 0;
+
+        foreach ($this->ratings as $rating) {
+            if ($rating->pivot->num_rated == $num_star) {
+                $count++;
+            }
+        }
+
+        return $count;
     }
 }

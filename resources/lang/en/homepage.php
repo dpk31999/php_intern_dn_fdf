@@ -34,4 +34,11 @@ return [
     'special-menu' => 'Special Menu',
     'menu-discription' => 'Our menu is extremely rich, with a full range of foods.',
     'all' => 'All',
+
+    'product-detail' => 'Product Detail',
+    'content' => 'Content',
+    'not-login' => 'You are not login',
+    'rating-break' => 'Rating breakdown',
+    'add-to-cart' => 'Add To Cart',
+
 ];

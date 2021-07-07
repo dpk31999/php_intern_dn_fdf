@@ -5,7 +5,7 @@ return [
     'menu' => 'Thực đơn',
     'about' => 'Về chúng tôi',
     'suggest' => 'Đề xuất',
-    'cart' => 'Giở hàng',
+    'cart' => 'Giỏ hàng',
     'check-out' => 'Thanh toán',
     'login' => 'Đăng nhập',
     'register' => 'Đăng ký',
@@ -34,4 +34,11 @@ return [
     'special-menu' => 'Thực đơn đặc biệt',
     'menu-discription' => 'Thực đơn của chúng tôi có đầy đủ các loại đồ ăn thức uống.',
     'all' => 'Tất cả',
+
+    'product-detail' => 'Chi tiết sản phẩm',
+    'content' => 'Nội dung',
+    'not-login' => 'Bạn chưa đăng nhập',
+    'rating-break' => 'Bảng xếp hạng đánh giá',
+    'add-to-cart' => 'Thêm vào giỏ hàng',
+
 ];
