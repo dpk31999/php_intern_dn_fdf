@@ -162,21 +162,21 @@
   box-shadow: 0 4px 30px rgba(0,0,0,.05);
 }
 
-.pull-head {
-  width:35px;
-  line-height:1;
+.table-image thead td, .table-image thead th {
+  border: 0;
+  color: #666;
+  font-size: 0.8rem;
 }
-
-.pull-in {
-  height:9px;
-  margin:5px 0;
+.table-image td, .table-image th {
+  vertical-align: middle;
+  text-align: center;
 }
-
-.pull-body {
-  width:180px;
+.table-image td.qty, .table-image th.qty {
+  max-width: 2rem;
 }
-
-.in-progress {
-  height:9px;
-  margin:8px 0;
+.price {
+  margin-left: 1rem;
+}
+.modal-footer {
+  padding-top: 0rem;
 }

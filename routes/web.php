@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -23,7 +24,10 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/menu/get-product-by-cate-id/{id}', [MenuController::class, 'getProductById']);
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-
 Route::post('/products/{product}/rating', [ProductController::class, 'createRating']);
+
+Route::post('/cart/{product}/add', [CartController::class, 'store']);
+Route::put('/cart/{product}/update', [CartController::class, 'update']);
+Route::delete('/cart/{product}/delete', [CartController::class, 'destroy']);
 
 Auth::routes();

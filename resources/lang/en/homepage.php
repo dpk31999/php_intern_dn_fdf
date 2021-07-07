@@ -40,5 +40,9 @@ return [
     'not_login' => 'You are not login',
     'rating_break' => 'Rating breakdown',
     'add_to_cart' => 'Add To Cart',
+    'quantity' => 'Quantity',
+    'total' => 'Total',
+    'action' => 'Action',
+    'close' => 'Close',
 
 ];
