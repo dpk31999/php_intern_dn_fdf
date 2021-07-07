@@ -34,4 +34,11 @@ return [
     'special_menu' => 'Thực đơn đặc biệt',
     'menu_discription' => 'Thực đơn của chúng tôi có đầy đủ các loại đồ ăn thức uống.',
     'all' => 'Tất cả',
+
+    'product_detail' => 'Chi tiết sản phẩm',
+    'content' => 'Nội dung',
+    'not_login' => 'Bạn chưa đăng nhập',
+    'rating_break' => 'Bảng xếp hạng đánh giá',
+    'add_to_cart' => 'Thêm vào giỏ hàng',
+
 ];
