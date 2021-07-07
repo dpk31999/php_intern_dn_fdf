@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6">
-                <h3>@lang('homepage.about-us')</h3>
+                <h3>@lang('homepage.about_us')</h3>
                 <p>@lang('homepage.misson')</p>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -49,16 +49,16 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <h3>@lang('homepage.contact-info')</h3>
+                <h3>@lang('homepage.contact_info')</h3>
                 <p class="lead">Da nang, Viet nam</p>
                 <p>hvd.03.12.99@gmail.com</p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h3>@lang('homepage.opening')</h3>
                 <p><span class="text-color">@lang('homepage.monday') :</span>@lang('homepage.closed')</p>
-                <p><span class="text-color">@lang('homepage.tue-web') :</span> 9:Am - 10PM</p>
-                <p><span class="text-color">@lang('homepage.thu-fri') :</span> 9:Am - 10PM</p>
-                <p><span class="text-color">@lang('homepage.sat-sun') :</span> 5:PM - 10PM</p>
+                <p><span class="text-color">@lang('homepage.tue_web') :</span> 9:Am - 10PM</p>
+                <p><span class="text-color">@lang('homepage.thu_fri') :</span> 9:Am - 10PM</p>
+                <p><span class="text-color">@lang('homepage.sat_sun') :</span> 5:PM - 10PM</p>
             </div>
         </div>
     </div>

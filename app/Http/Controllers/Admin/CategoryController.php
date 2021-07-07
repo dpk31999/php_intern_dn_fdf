@@ -55,10 +55,10 @@ class CategoryController extends Controller
             ]);
 
             return redirect()->route('admin.categories.index')
-                            ->with('message', trans('categories.message-create-success'));
+                            ->with('message', trans('categories.message_create_success'));
         } catch (Throwable $e) {
             return redirect()->route('admin.categories.index')
-                            ->with('error', trans('categories.message-create-fail'));
+                            ->with('error', trans('categories.message_create_fail'));
         }
     }
 
@@ -103,10 +103,10 @@ class CategoryController extends Controller
             $category->save();
 
             return redirect()->route('admin.categories.index')
-                            ->with('message', trans('categories.message-update-success'));
+                            ->with('message', trans('categories.message_update_success'));
         } catch (Throwable $e) {
             return redirect()->route('admin.categories.index')
-                            ->with('error', trans('categories.message-update-fail'));
+                            ->with('error', trans('categories.message_update_fail'));
         }
     }
 
@@ -134,7 +134,7 @@ class CategoryController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => trans('categories.message-delete-success'),
+                'message' => trans('categories.message_delete_success'),
             ], 200);
         } catch (Throwable $e) {
             DB::rollBack();

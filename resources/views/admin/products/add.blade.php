@@ -14,24 +14,24 @@
 <div class="info-container">
     <div class="info-heading">
         <a href="#" class="info-title">
-            <h5 class="title">@lang('products.add-product')</h5>
+            <h5 class="title">@lang('products.add_product')</h5>
         </a>
     </div>
     <hr class="sidebar-divider my-0">
     <form method="POST" action="{{ route('admin.products.store') }}">
         @csrf
         <div class="form-group">
-            <label for="cate">@lang('products.name-cate') </label>
+            <label for="cate">@lang('products.name_cate') </label>
             <select name="cate" id="cate" class="form-control">
                 @forelse ($categories as $cate)
                     <option value="{{ $cate->id }}">{{ $cate->name }}</option>
                 @empty
-                    <option disabled selected>@lang('products.there-no-parent')</option>
+                    <option disabled selected>@lang('products.there_no_parent')</option>
                 @endforelse
             </select>
         </div>
         <div class="form-group">
-            <label for="name">@lang('products.name-product') </label>
+            <label for="name">@lang('products.name_product') </label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"  value="{{ old('name') }}" required autocomplete="name" required autofocus>
 
             @error('name')

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">@lang('auth.verify-email')</div>
+                <div class="card-header">@lang('auth.verify_email')</div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -14,11 +14,11 @@
                         </div>
                     @endif
 
-                    @lang('auth.check-email')
-                    @lang('auth.no-receive')
+                    @lang('auth.check_email')
+                    @lang('auth.no_receive')
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">@lang('auth.click-resend')</button>.
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">@lang('auth.click_resend')</button>.
                     </form>
                 </div>
             </div>

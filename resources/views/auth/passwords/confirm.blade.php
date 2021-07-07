@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">@lang('auth.password-confirm')</div>
+                <div class="card-header">@lang('auth.password_confirm')</div>
 
                 <div class="card-body">
                     @lang('auth.continue')
@@ -34,7 +34,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        @lang('auth.forgot-password')
+                                        @lang('auth.forgot_password')
                                     </a>
                                 @endif
                             </div>

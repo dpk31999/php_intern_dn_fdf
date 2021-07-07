@@ -51,7 +51,7 @@ class ImageProductController extends Controller
         ]);
 
         return redirect()->route('admin.products.edit', $product->id)
-                        ->with('message', trans('products.message-add-image-success'));
+                        ->with('message', trans('products.message_add_image_success'));
     }
 
     /**
@@ -107,11 +107,11 @@ class ImageProductController extends Controller
             $productImage->delete();
 
             return response()->json([
-                'message' => trans('products.message-delete-image-success'),
+                'message' => trans('products.message_delete_image_success'),
             ], 200);
         } catch (Throwable $th) {
             return response()->json([
-                'message' => trans('products.message-delete-image-fail'),
+                'message' => trans('products.message_delete_image_fail'),
             ], 500);
         }
     }

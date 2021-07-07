@@ -18,7 +18,7 @@
     <hr class="sidebar-divider my-0">
     <div class="info-heading">
         <div class="info-title">
-            <h5 class="title">@lang('products.edit-images')</h5>
+            <h5 class="title">@lang('products.edit_images')</h5>
         </div>
         <div class="icon_sub">
             <form id="form_add_image" action="{{ route('admin.image.store', $product->id) }}" method="POST" enctype="multipart/form-data">
@@ -49,17 +49,17 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="cate">@lang('products.name-cate') </label>
+            <label for="cate">@lang('products.name_cate') </label>
             <select name="cate" id="cate" class="form-control">
                 @forelse ($categories as $cate)
                     <option value="{{ $cate->id }}" {{ $cate->id == $product->cate_id ? 'selected' : '' }}>{{ $cate->name }}</option>
                 @empty
-                    <option disabled selected>@lang('products.there-no-parent')</option>
+                    <option disabled selected>@lang('products.there_no_parent')</option>
                 @endforelse
             </select>
         </div>
         <div class="form-group">
-            <label for="name">@lang('products.name-product') </label>
+            <label for="name">@lang('products.name_product') </label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"  value="{{ $product->name }}" required autocomplete="name" required>
 
             @error('name')

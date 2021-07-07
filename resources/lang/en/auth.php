@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'title-admin' => 'Admin - Dashboard',
-    'title-manager' => 'Manager - Dashboard',
+    'title_admin' => 'Admin _ Dashboard',
+    'title_manager' => 'Manager _ Dashboard',
 
-    'welcome-to-login' => 'Login to Course Online Admin',
+    'welcome_to_login' => 'Login to Course Online Admin',
 
     'admin' => 'Admin',
     'manager' => 'Manager',
@@ -27,25 +27,28 @@ return [
 
 
     'password' => 'Password',
-    'password-confirm' => 'Confirm Password',
-    'forgot-password' => 'Forgot Your Password?',
+    'password_confirm' => 'Confirm Password',
+    'forgot_password' => 'Forgot Your Password?',
     'continue' => 'Please confirm your password before continuing.',
     'reset' => 'Reset Password',
-    'email' => 'E-Mail Address',
-    'send-email' => 'Send Password Reset Link',
+    'email' => 'E_Mail Address',
+    'send_email' => 'Send Password Reset Link',
     'remember' => 'Remember Me',
 
     'login' => 'Login',
     'register' => 'Register',
     'logout' => 'Logout',
 
-    'logout-success' => 'Logout successful!',
+    'logout_success' => 'Logout successful!',
 
     'name' => 'name',
-    'verify-email' => 'Verify Your Email Address',
+    'verify_email' => 'Verify Your Email Address',
     'resend' => 'A fresh verification link has been sent to your email address.',
-    'check-email' => 'Before proceeding, please check your email for a verification link.',
-    'no-receive' => 'If you did not receive the email',
-    'click-resend' => 'click here to request another',
+    'check_email' => 'Before proceeding, please check your email for a verification link.',
+    'no_receive' => 'If you did not receive the email',
+    'click_resend' => 'click here to request another',
+
+    'login_fb' => 'Login with Facebook',
+    'dont_have_account' => 'Don\'t have an account?',
 
 ];

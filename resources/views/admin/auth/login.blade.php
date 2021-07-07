@@ -6,7 +6,7 @@
             <div class="form-heading">
                 <a href="#" class="form-title-link">
                     <i class="fas fa-user-circle fa-2x text-gray-300" id="icon-custom"></i>
-                    <h3 class="title">@lang('auth.welcome-to-login')</h3>
+                    <h3 class="title">@lang('auth.welcome_to_login')</h3>
                 </a>
             </div>
             @include('common.error')

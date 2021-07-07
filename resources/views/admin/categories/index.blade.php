@@ -30,11 +30,11 @@
                         <table class="table table-st">
                             <thead class="color__theme">
                                 <tr>
-                                    <th>@lang('categories.name-cate')</th>
+                                    <th>@lang('categories.name_cate')</th>
                                     <th>@lang('categories.description')</th>
-                                    <th>@lang('categories.parent-cate')</th>
+                                    <th>@lang('categories.parent_cate')</th>
                                     <th>@lang('categories.type')</th>
-                                    <th>@lang('categories.num-product')</th>
+                                    <th>@lang('categories.num_product')</th>
                                     <th></th>
                                 </tr>
                             </thead>

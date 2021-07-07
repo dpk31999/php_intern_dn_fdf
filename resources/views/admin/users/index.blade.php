@@ -15,7 +15,7 @@
                     <div class="col-sm-12 text-center">
                         <a href="" class="exam-title-class">
                             <i class="fas fa-users"></i>
-                            @lang('users.user-system')
+                            @lang('users.user_system')
                         </a>
                     </div>
                     <div class="info-table-course">
@@ -24,9 +24,9 @@
                                 <tr>
                                     <th>@lang('users.fullname')</th>
                                     <th>@lang('users.email')</th>
-                                    <th>@lang('users.phone-number')</th>
-                                    <th>@lang('users.num-order')</th>
-                                    <th>@lang('users.num-suggest')</th>
+                                    <th>@lang('users.phone_number')</th>
+                                    <th>@lang('users.num_order')</th>
+                                    <th>@lang('users.num_suggest')</th>
                                     <th></th>
                                 </tr>
                             </thead>
