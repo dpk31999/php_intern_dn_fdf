@@ -17,9 +17,7 @@ const mix = require('laravel-mix');
 ]   , 'public/js')
     .js('resources/js/client/home.js', 'public/js/client')
     .js('resources/js/admin/home.js', 'public/js/admin')
-    .js(['resources/js/client/lib/jquery-3.2.1.min.js',
-        'resources/js/client/lib/popper.min.js',
-        'resources/js/client/lib/bootstrap.min.js',
+    .js(['resources/js/client/lib/popper.min.js',
         'resources/js/client/lib/isotope.min.js',
         'resources/js/client/lib/baguetteBox.min.js',
         'resources/js/client/lib/jquery.superslides.min.js',
@@ -28,6 +26,7 @@ const mix = require('laravel-mix');
         'resources/js/client/lib/form-validator.min.js',
     ], 'public/js/client/alllib.js')
     .copy('resources/js/client/lib/jquery.min.js', 'public/js/client/')
+    .copy('resources/js/client/lib/bootstrap.min.js', 'public/js/client/')
     .sass('resources/sass/app.scss', 'public/css')
     .styles([
         'resources/css/base.css',

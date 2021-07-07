@@ -1,2 +1,11 @@
 
 /** ADD YOUR AWESOME CODES HERE **/
+
+.cursor {
+    cursor: pointer;
+}
+
+.content {
+    padding-top: 80px;
+    min-height: 500px;
+}
