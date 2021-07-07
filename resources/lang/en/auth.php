@@ -51,4 +51,7 @@ return [
     'login_fb' => 'Login with Facebook',
     'dont_have_account' => 'Don\'t have an account?',
 
+    'login-fb' => 'Login with Facebook',
+    'dont-have-account' => 'Don\'t have an account?',
+
 ];

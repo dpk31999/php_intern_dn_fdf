@@ -38,4 +38,7 @@ return [
     'login_fb' => 'Đăng nhập với Facebook',
     'dont_have_account' => 'Bạn chưa có tài khoản?',
 
+    'login-fb' => 'Đăng nhập với Facebook',
+    'dont-have-account' => 'Bạn chưa có tài khoản?',
+
 ];
