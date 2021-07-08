@@ -217,7 +217,7 @@ $(document).ready(function () {
     });
 
     // add cart
-    $('.add-to-cart').on('click', function () {
+    $('body').on('click', '.add-to-cart', function () {
         var id = $(this).data('product-id');
 
         addCartAjax(id, 1);
@@ -362,4 +362,59 @@ $(document).ready(function () {
     }
 
     checkQuantityInput();
+
+    // preview avatar user
+    var readURL = function (input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.avatar').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+    $(".file-upload").on('change', function () {
+        readURL(this);
+    });
+
+    // change pass profile
+    $('#changePasswordForm').on('submit', function (e) {
+        e.preventDefault();
+        let formData = $(this).serializeArray();
+        $(".invalid-feedback").children("strong").text("");
+        $("#changePasswordForm input").removeClass("is-invalid");
+        $.ajax({
+            method: "PUT",
+            headers: {
+                Accept: "application/json"
+            },
+            url: '/profile/password/change',
+            data: formData,
+            success: function (response) {
+                $("#changePasswordForm input").val('');
+                $(".alert-password").children("strong").text(response.message);
+                $(".alert-password").removeClass('d-none');
+            },
+            error: (response) => {
+                $("#changePasswordForm input").val('');
+                if (response.status === 422) {
+                    if (typeof response.responseJSON.errors !== 'undefined') {
+                        let errors = response.responseJSON.errors;
+                        Object.keys(errors).forEach(function (key) {
+                            console.log(key)
+                            $("#" + key + "Input").addClass("is-invalid");
+                            $("#" + key + "Error").children("strong").text(errors[key][0]);
+                        });
+                    } else {
+                        $("#oldpasswordInput").addClass("is-invalid");
+                        $("#oldpasswordError").children("strong").text(response.error);
+                    }
+                }
+            }
+        })
+    });
 });

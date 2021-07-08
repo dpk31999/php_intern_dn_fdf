@@ -28,11 +28,13 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <form id="logout-form" method="POST">
                                     @csrf
-                                    <button class="dropdown-item cursor">
+                                    <a class="dropdown-item cursor"><button class="btn btn-outline-light">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         @lang('auth.logout')
                                     </button>
+                                    </a>
                                 </form>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
                             </div>
                         </li>
                     @endguest
