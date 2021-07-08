@@ -67,4 +67,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function getAvatarAttribute()
+    {
+        return $this->avatar_path != '' ? $this->avatar_path : 'img/ava-default.png';
+    }
 }

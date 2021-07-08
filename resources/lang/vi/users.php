@@ -23,4 +23,14 @@ return [
     'message_delete_success' => 'Xoá thành công',
     'message_delete_fail' => 'Xoá thất bại, thử lại sau',
 
+    'upload_ava' => 'Thêm một ảnh khác...',
+    'activity' => 'Hoạt động',
+    'old_pass' => 'Mật khẩu cũ',
+
+    'pass_not_match' => 'Mật khẩu cũ không chính xác',
+    'change_pass_success' => 'Thay đổi mật khẩu thành công!',
+
+    'profile' => 'Thông tin cá nhân',
+    'no_choise' => 'Chưa chọn'
+
 ];

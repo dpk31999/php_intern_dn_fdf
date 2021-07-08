@@ -23,4 +23,14 @@ return [
     'message_delete_success' => 'Delete Successful',
     'message_delete_fail' => 'Delete Failure',
 
+    'upload_ava' => 'Upload a different photo...',
+    'activity' => 'Activity',
+    'old_pass' => 'Old Password',
+
+    'pass_not_match' => 'Old password not match',
+    'change_pass_success' => 'Change password success!',
+
+    'profile' => 'Profile',
+    'no_choise' => 'No Chose',
+
 ];
