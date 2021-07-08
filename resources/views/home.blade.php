@@ -99,7 +99,7 @@
                                                 <div class="d-flex justify-content-around">
                                                     <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                     <a href="{{ route('products.show', $product->id) }}"><i class="fas fa-eye cursor"></i></a>
-                                                    <a><i class="fas fa-shopping-cart cursor"></i></a>
+                                                    <a class="add-to-cart" data-product-id="{{ $product->id }}"><i class="fas fa-shopping-cart cursor"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@
                                                 <div class="d-flex justify-content-around">
                                                     <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                     <a href="{{ route('products.show', $product->id) }}"><i class="fas fa-eye cursor"></i></a>
-                                                    <a><i class="fas fa-shopping-cart cursor"></i></a>
+                                                    <a class="add-to-cart" data-product-id="{{ $product->id }}"><i class="fas fa-shopping-cart cursor"></i></a>
                                                 </div>
                                             </div>
                                         </div>

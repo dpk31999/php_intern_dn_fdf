@@ -10,7 +10,11 @@
                     <li class="nav-item {{ Route::is('menu') ? 'active' : '' }}"><a class="nav-link" href="{{ route('menu') }}">@lang('homepage.menu')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.about')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.suggest')</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.cart')</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center cursor" data-toggle="modal" data-target="#cartModal">
+                            @lang('homepage.cart') <span class="badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
+                        </a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.check-out')</a></li>
                     @guest('web')
                         <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalLogin">@lang('homepage.login')</a></li>
