@@ -42,6 +42,10 @@
                     <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-users fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('users.users')</span></a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.categories.index') }}"><i class="fa fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('categories.categories')</span></a>
+                </li>
+
                 <hr class="sidebar-divider">
 
                 <li class="nav-item">
@@ -64,7 +68,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span><strong>@lang('auth.title-admin')</strong></span>
+                                    <span><strong>{{ Auth::guard('admin')->user()->fullname }} ( {{ Auth::guard('admin')->user()->role }} )</strong></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                     <form id="admin-logout-form" method="POST">

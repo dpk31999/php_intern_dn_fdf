@@ -47,4 +47,38 @@ $(document).ready(function () {
             },
         });
     });
+
+    $('#type_cate').on('change', function () {
+        if (this.value == '0') {
+            $('#chose_parent').addClass('d-none');
+        } else {
+            $('#chose_parent').removeClass('d-none');
+        }
+    });
+
+    $('.btn-delete-cate').on('click', function () {
+        var id = $(this).data('id');
+
+        var locale = $('meta[name="locale"]').attr('content');
+
+        var message;
+
+        locale == 'en' ? message = 'Do you want to delete this category?' : message = 'Có phải bạn muốn xoá danh mục này?';
+
+        if (!confirm(message)) {
+            return false;
+        }
+
+        $.ajax({
+            method: 'DELETE',
+            url: '/admin/categories/' + id,
+            success: function (data) {
+                $('#category-' + id).remove();
+                $('#message').html('<div class="alert alert-success" role="alert">' + data.message + '</div>');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $('#message').html('<div class="alert alert-warning" role="alert">' + thrownError + '</div>');
+            },
+        });
+    });
 });

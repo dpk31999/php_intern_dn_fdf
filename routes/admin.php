@@ -30,5 +30,9 @@ Route::namespace('Admin')->name('admin.')->group(function () {
             'show',
             'destroy',
         ]);
+
+        Route::resource('categories', '\App\Http\Controllers\Admin\CategoryController')->except([
+            'show',
+        ]);
     });
 });
