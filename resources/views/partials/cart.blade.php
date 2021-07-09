@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Your Shopping Cart
+                    @lang('checkout.your_cart')
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="modal-footer border-top-0 d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('homepage.close')</button>
-                <button type="button" class="btn btn-success">@lang('homepage.check_out')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('checkout.close')</button>
+                <a @auth('web') href="{{ route('checkout.index') }}" @else data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" @endauth><button type="button" class="btn btn-success">@lang('homepage.check_out')</button></a>
             </div>
         </div>
     </div>
