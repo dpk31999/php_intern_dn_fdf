@@ -41,4 +41,11 @@ return [
     'rating-break' => 'Bảng xếp hạng đánh giá',
     'add-to-cart' => 'Thêm vào giỏ hàng',
 
+    'chose-child-cate' => 'Chọn danh mục con',
+    'child-cate' => 'Danh mục con',
+
+    'suggest-succes' => 'Yêu cầu của bạn sẽ được quản trị viên xem xét và thêm vào!',
+    'send-suggest' => 'Gửi yêu cầu',
+
+    'suggest-title' => 'Yêu cầu thêm sản phẩm',
 ];

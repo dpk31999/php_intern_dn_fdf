@@ -41,4 +41,12 @@ return [
     'rating-break' => 'Rating breakdown',
     'add-to-cart' => 'Add To Cart',
 
+    'chose-child-cate' => 'Chose child category',
+    'child-cate' => 'Child categories',
+
+    'suggest-succes' => 'Your suggest will be reviewed and approved by the administrator!',
+    'send-suggest' => 'Send suggest',
+
+    'suggest-title' => 'Suggest product',
+
 ];
