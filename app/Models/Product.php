@@ -35,7 +35,9 @@ class Product extends Model
 
     public function orderDetails()
     {
-        return $this->belongsToMany(Order::class, 'order_details', 'product_id', 'order_id')->withPivot('quantity');
+        return $this->belongsToMany(Order::class, 'order_details', 'product_id', 'order_id')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
     }
 
     public function favoriteProducts()

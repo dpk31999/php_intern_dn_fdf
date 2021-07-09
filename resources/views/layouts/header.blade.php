@@ -5,17 +5,18 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbars-rs-food">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 rounded border border-secondary border-top-0" type="search" placeholder="Search" aria-label="Search">
+                </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item {{ Route::is('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">@lang('homepage.home')</a></li>
                     <li class="nav-item {{ Route::is('menu') ? 'active' : '' }}"><a class="nav-link" href="{{ route('menu') }}">@lang('homepage.menu')</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.about')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.suggest')</a></li>
                     <li class="nav-item">
                         <a class="nav-link d-flex align-items-center cursor" data-toggle="modal" data-target="#cartModal">
                             @lang('homepage.cart') <span class="badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.check-out')</a></li>
                     @guest('web')
                         <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalLogin">@lang('homepage.login')</a></li>
                         <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalRegister">@lang('homepage.register')</a></li>

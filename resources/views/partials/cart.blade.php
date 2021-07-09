@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Your Shopping Cart
+                    @lang('checkout.your-cart')
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -15,13 +15,13 @@
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">@lang('products.products')</th>
+                            <th scope="col">@lang('products.price')</th>
                             <th></th>
-                            <th scope="col">Qty</th>
+                            <th scope="col">@lang('checkout.quantity')</th>
                             <th></th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col">@lang('checkout.total')</th>
+                            <th scope="col">@lang('checkout.action')</th>
                         </tr>
                     </thead>
                     <tbody id="list_items">
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="modal-footer border-top-0 d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Checkout</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('checkout.close')</button>
+                <a @auth('web') href="{{ route('checkout.index') }}" @else data-dismiss="modal" data-toggle="modal" data-target="#modalLogin" @endauth><button type="button" class="btn btn-success">@lang('homepage.check-out')</button></a>
             </div>
         </div>
     </div>
