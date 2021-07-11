@@ -64,9 +64,9 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-                        <a class="nav-link icon-parent cursor" data-toggle="modal" data-target="#cartModal">
+                        <a class="nav-link icon-parent cursor" @auth('web') id="modalFavorite" data-toggle="modal" data-target="#favoriteModal" @else data-toggle="modal" data-target="#modalLogin" @endauth>
                             <i class="fas fa-heart"></i>
-                            <span class="icon-child badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
+                            <span class="icon-child badge badge-success ml-2" id="count_favorite">{{ $count_favorite }}</span>
                         </a>
                     </li>
                 </ul>

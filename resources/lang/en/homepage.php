@@ -49,4 +49,10 @@ return [
 
     'suggest-title' => 'Suggest product',
 
+    'exist-product' => 'This product is exist in your favorite',
+    'add-favorite-success' => 'Product has been added to your favorite',
+
+    'favorite-product' => 'List favorite product',
+    'remove-favorite-success' => 'Remove favorite successful',
+    'remove-favorite-fail' => 'Remove favorite failure',
 ];

@@ -96,9 +96,10 @@
                                             <div class="why-text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <p>@lang('products.avg-rate'): {{ $product->avg_rating }}* ({{$product->ratings->count()}})</p>
+                                                <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                 <div class="d-flex justify-content-around">
-                                                    <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                     <a href="{{ route('products.show', $product->id) }}"><i class="fas fa-eye cursor"></i></a>
+                                                    <a @auth('web') class="add-my-favorite" @else data-toggle="modal" data-target="#modalLogin" @endauth data-product-id="{{ $product->id }}"><i class="fas fa-heart cursor"></i></a>
                                                     <a class="add-to-cart" data-product-id="{{ $product->id }}"><i class="fas fa-shopping-cart cursor"></i></a>
                                                 </div>
                                             </div>
@@ -118,9 +119,10 @@
                                             <div class="why-text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <p>@lang('products.avg-rate'): {{ $product->avg_rating }}* ({{$product->ratings->count()}})</p>
+                                                <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                 <div class="d-flex justify-content-around">
-                                                    <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                     <a href="{{ route('products.show', $product->id) }}"><i class="fas fa-eye cursor"></i></a>
+                                                    <a @auth('web') class="add-my-favorite" @else data-toggle="modal" data-target="#modalLogin" @endauth data-product-id="{{ $product->id }}"><i class="fas fa-heart cursor"></i></a>
                                                     <a class="add-to-cart" data-product-id="{{ $product->id }}"><i class="fas fa-shopping-cart cursor"></i></a>
                                                 </div>
                                             </div>

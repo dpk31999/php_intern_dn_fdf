@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -33,7 +34,7 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::post('/products/{product}/rating', [ProductController::class, 'createRating']);
 Route::get('/products/{product}/rating/{num_rate}', [ProductController::class, 'getSpecifyRating']);
 
-Route::get('/cart/', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/{product}/add', [CartController::class, 'store']);
 Route::put('/cart/{product}/update', [CartController::class, 'update']);
 Route::delete('/cart/{product}/delete', [CartController::class, 'destroy']);
@@ -49,6 +50,10 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get('/suggest', [SuggestController::class, 'index'])->name('suggest.index');
     Route::post('/suggest', [SuggestController::class, 'store']);
+
+    Route::get('/favorite', [FavoriteController::class, 'index']);
+    Route::post('/favorite/{product}', [FavoriteController::class, 'storeFavorite']);
+    Route::delete('/favorite/{product}', [FavoriteController::class, 'destroy']);
 });
 
 Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);

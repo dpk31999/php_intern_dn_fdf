@@ -48,4 +48,11 @@ return [
     'send-suggest' => 'Gửi yêu cầu',
 
     'suggest-title' => 'Yêu cầu thêm sản phẩm',
+
+    'exist-product' => 'Sản phẩm này đã tồn tại trong yêu thích của bạn',
+    'add-favorite-success' => 'Sản phẩm đã được thêm vào yêu thích của bạn',
+
+    'favorite-product' => 'Danh sách sản phẩm yêu thích',
+    'remove-favorite-success' => 'Xoá yêu thích thành công',
+    'remove-favorite-fail' => 'Xoá yêu thích thất bại',
 ];
