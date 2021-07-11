@@ -6,6 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -55,3 +56,5 @@ Route::get('/category/{category}/child', [CategoryController::class, 'getChildCa
 Route::get('/search/{word}', [SearchController::class, 'searchProductByName']);
 
 Auth::routes();
+
+Route::get('change/{locale}', [LocaleController::class, 'index'])->name('locale');
