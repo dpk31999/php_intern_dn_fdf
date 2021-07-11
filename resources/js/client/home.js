@@ -155,42 +155,7 @@ $(document).ready(function () {
             data: formData,
             success: function (data) {
                 $("#form_add_rating textarea").val('');
-                var star = '';
-                for (var i = 1; i <= 5; i++) {
-                    if (i <= data.pivot.num_rated) {
-                        star += '<button type="button" class="btn btn-warning btn-xs mr-1" aria-label="Left Align">' +
-                            '<i class="fas fa-star"></i>' +
-                        '</button>';
-                    } else {
-                        star += '<button type="button" class="btn btn-warning btn-grey btn-xs mr-1" aria-label="Left Align">' +
-                            '<i class="fas fa-star"></i>' +
-                        '</button>';
-                    }
-                }
-
-                var formattedDate = new Date(data.pivot.created_at);
-                var d = formattedDate.getDate();
-                var m =  formattedDate.getMonth();
-                m += 1;
-                var y = formattedDate.getFullYear();
-                var result = d + "-" + m + "-" + y;
-
-                var html = '<div class="review-block">' +
-                        '<div class="row">' +
-                        '<div class="col-sm-3">' +
-                        '<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">' +
-                        '<div class="review-block-name">'+ data.name +'</div>' +
-                        '<div class="review-block-date">'+ result +'<br />Just now</div>' +
-                        '</div>' +
-                        '<div class="col-sm-9">' +
-                        '<div class="review-block-rate">' +
-                        star +
-                        '</div>' +
-                        '<div class="review-block-title">'+ data.pivot.content +'</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<hr />' +
-                        '</div>';
+                var html = renderRating(data);
                 var avg_rate = parseFloat($('#avg_rate').text());
                 var count_rate = parseFloat($('#count_rate').text());
 
@@ -214,6 +179,64 @@ $(document).ready(function () {
                 }
             }
         })
+    });
+
+    function renderRating(data)
+    {
+        var star = '';
+        for (var i = 1; i <= 5; i++) {
+            if (i <= data.pivot.num_rated) {
+                star += '<button type="button" class="btn btn-warning btn-xs mr-1" aria-label="Left Align">' +
+                    '<i class="fas fa-star"></i>' +
+                '</button>';
+            } else {
+                star += '<button type="button" class="btn btn-warning btn-grey btn-xs mr-1" aria-label="Left Align">' +
+                    '<i class="fas fa-star"></i>' +
+                '</button>';
+            }
+        }
+
+        var formattedDate = new Date(data.pivot.created_at);
+        var d = formattedDate.getDate();
+        var m =  formattedDate.getMonth();
+        m += 1;
+        var y = formattedDate.getFullYear();
+        var result = d + "-" + m + "-" + y;
+
+        var html = '<div class="review-block">' +
+                '<div class="row">' +
+                '<div class="col-sm-3">' +
+                '<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">' +
+                '<div class="review-block-name">'+ data.name +'</div>' +
+                '<div class="review-block-date">'+ result +'<br />Just now</div>' +
+                '</div>' +
+                '<div class="col-sm-9">' +
+                '<div class="review-block-rate">' +
+                star +
+                '</div>' +
+                '<div class="review-block-title">'+ data.pivot.content +'</div>' +
+                '</div>' +
+                '</div>' +
+                '<hr />' +
+                '</div>';
+        return html;
+    }
+
+    $('.progress-bar').on('click', function () {
+        var id = $(this).data('product-id');
+        var num_rate = $(this).data('num-rate');
+
+        $.ajax({
+            method: 'GET',
+            url: '/products/'+ id +'/rating/' + num_rate,
+            success: function (data) {
+                var html = '';
+                Object.keys(data).forEach(key => {
+                    html += renderRating(data[key]);
+                })
+                $('#list_ratings').html(html);
+            }
+        });
     });
 
     // add cart

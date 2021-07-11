@@ -75,6 +75,13 @@ class ProductController extends Controller
         return response()->json($ratings, 200);
     }
 
+    public function getSpecifyRating(Product $product, $num_rate)
+    {
+        $ratings = $product->getSpecifyRating($num_rate);
+
+        return response()->json($ratings, 200);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

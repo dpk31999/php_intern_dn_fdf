@@ -24,6 +24,35 @@
 	padding:15px 15px 20px 15px;
 	border-radius:3px;
 }
+.star-style {
+  width:35px;
+  line-height:1;
+}
+.star-style div {
+  height:9px;
+  margin:5px 0;
+}
+.star-header {
+  width:180px;
+}
+.star-header .progress {
+  height:9px; margin:8px 0;
+}
+.progress-bar-success {
+  width: 100%;
+}
+.progress-bar-primary {
+  width: 80%;
+}
+.progress-bar-info {
+  width: 60%;
+}
+.progress-bar-warning {
+  width: 40%;
+}
+.progress-bar-danger {
+  width: 20%;
+}
 .bold{
 	font-weight:700;
 }
