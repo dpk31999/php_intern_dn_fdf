@@ -6,71 +6,35 @@
         </div>
     </div>
     <div class="col-sm-6">
-        <h4>@lang('homepage.rating_break')</h4>
-        <div class="pull-left d-flex">
-            <div class="pull-left pull-head">
-                <div class="pull-in">5 <span class="glyphicon glyphicon-star"></span></div>
-            </div>
-            <div class="pull-left pull-body">
-                <div class="progress in-progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5"
-                        aria-valuemin="0" aria-valuemax="5">
+        <h4>@lang('homepage.rating-break')</h4>
+        @for ($i = 5; $i > 0; $i--)
+            <div class="pull-left d-flex">
+                <div class="pull-left star-style">
+                    <div >{{ $i }} <span class="glyphicon glyphicon-star"></span></div>
+                </div>
+                <div class="pull-left star-header">
+                    <div class="progress">
+                        @switch($i)
+                            @case(5)
+                                <div class="progress-bar cursor progress-bar-success bg-success" role="progressbar" data-product-id="{{ $product->id }}" data-num-rate="{{ $i }}" aria-valuenow="{{ $i }} "aria-valuemin="0" aria-valuemax="5"></div>
+                                @break
+                            @case(4)
+                                <div class="progress-bar cursor progress-bar-primary bg-primary" role="progressbar" data-product-id="{{ $product->id }}" data-num-rate="{{ $i }}" aria-valuenow="{{ $i }} "aria-valuemin="0" aria-valuemax="5"></div>
+                                @break
+                            @case(3)
+                                <div class="progress-bar cursor progress-bar-info bg-info" role="progressbar" data-product-id="{{ $product->id }}" data-num-rate="{{ $i }}" aria-valuenow="{{ $i }} "aria-valuemin="0" aria-valuemax="5"></div>
+                                @break
+                            @case(2)
+                                <div class="progress-bar cursor progress-bar-warning bg-warning" role="progressbar" data-product-id="{{ $product->id }}" data-num-rate="{{ $i }}" aria-valuenow="{{ $i }} "aria-valuemin="0" aria-valuemax="5"></div>
+                                @break
+                            @case(1)
+                                <div class="progress-bar cursor progress-bar-danger bg-danger" role="progressbar" data-product-id="{{ $product->id }}" data-num-rate="{{ $i }}" aria-valuenow="{{ $i }} "aria-valuemin="0" aria-valuemax="5"></div>
+                                @break
+                        @endswitch
                     </div>
                 </div>
+                <div class="pull-right ml-2">{{ $product->getNumbOfRating($i) }}</div>
             </div>
-            <div class="pull-right">{{ $product->getNumbOfRating(5) }}</div>
-        </div>
-        <div class="pull-left d-flex">
-            <div class="pull-left pull-head">
-                <div class="pull-in">4 <span class="glyphicon glyphicon-star"></span></div>
-            </div>
-            <div class="pull-left pull-body">
-                <div class="progress in-progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4"
-                        aria-valuemin="0" aria-valuemax="5">
-                    </div>
-                </div>
-            </div>
-            <div class="pull-right">{{ $product->getNumbOfRating(4) }}</div>
-        </div>
-        <div class="pull-left d-flex">
-            <div class="pull-left pull-head">
-                <div class="pull-in">3 <span class="glyphicon glyphicon-star"></span></div>
-            </div>
-            <div class="pull-left pull-body">
-                <div class="progress in-progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3"
-                        aria-valuemin="0" aria-valuemax="5">
-                    </div>
-                </div>
-            </div>
-            <div class="pull-right">{{ $product->getNumbOfRating(3) }}</div>
-        </div>
-        <div class="pull-left d-flex">
-            <div class="pull-left pull-head">
-                <div class="pull-in">2 <span class="glyphicon glyphicon-star"></span></div>
-            </div>
-            <div class="pull-left pull-body">
-                <div class="progress in-progress">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2"
-                        aria-valuemin="0" aria-valuemax="5">
-                    </div>
-                </div>
-            </div>
-            <div class="pull-right">{{ $product->getNumbOfRating(2) }}</div>
-        </div>
-        <div class="pull-left d-flex">
-            <div class="pull-left pull-head">
-                <div class="pull-in">1 <span class="glyphicon glyphicon-star"></span></div>
-            </div>
-            <div class="pull-left pull-body">
-                <div class="progress in-progress">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1"
-                        aria-valuemin="0" aria-valuemax="5">
-                    </div>
-                </div>
-            </div>
-            <div class="pull-right">{{ $product->getNumbOfRating(1) }}</div>
-        </div>
+        @endfor
     </div>
 </div>
