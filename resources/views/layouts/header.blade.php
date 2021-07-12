@@ -33,7 +33,8 @@
                                         @lang('auth.logout')
                                     </a>
                                 </form>
-                                <a class="dropdown-item" href="{{ route('profile.index') }}">@lang('users.profile')</a>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">@lang('homepage.profile')</a>
+                                <a class="dropdown-item" href="{{ route('order.index') }}">@lang('homepage.order_history')</a>
                             </div>
                         </li>
                     @endguest
@@ -64,15 +65,9 @@
                         </a>
                     </li>
                     <li class="nav-item ml-2">
-<<<<<<< Updated upstream
-                        <a class="nav-link icon-parent cursor" data-toggle="modal" data-target="#cartModal">
-                            <i class="fas fa-heart"></i>
-                            <span class="icon-child badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
-=======
                         <a class="nav-link icon-parent cursor" @auth('web') id="modalFavorite" data-toggle="modal" data-target="#favoriteModal" @else data-toggle="modal" data-target="#modalLogin" @endauth>
                             <i class="fas fa-heart"></i>
                             <span class="icon-child badge badge-success ml-2" id="count_favorite">{{ $count_favorite }}</span>
->>>>>>> Stashed changes
                         </a>
                     </li>
                 </ul>

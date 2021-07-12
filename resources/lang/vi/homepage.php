@@ -45,6 +45,9 @@ return [
     'action' => 'Hành động',
     'close' => 'Đóng',
 
+    'profile' => 'Thông tin cá nhân',
+    'order_history' => 'Lịch sửa đơn hàng',
+
     'chose_child_cate' => 'Chọn danh mục con',
     'child_cate' => 'Danh mục con',
 
@@ -59,4 +62,16 @@ return [
     'favorite_product' => 'Danh sách sản phẩm yêu thích',
     'remove_favorite_success' => 'Xoá yêu thích thành công',
     'remove_favorite_fail' => 'Xoá yêu thích thất bại',
+
+    'total_order_in_website' => 'Danh sách đơn hàng trên website',
+    'detail_order' => 'Chi tiết đơn hàng',
+    'order_status' => 'Tình trạng của đơn hàng',
+
+    'order_done' => 'Các đơn hàng đã hoàn thành',
+    'order_pending' => 'Các đơn hàng đang chờ',
+    'order_cancel' => 'Các đơn hàng đã huỷ',
+    'order_id' => 'Mã đơn hàng',
+    'order_date' => 'Ngày đặt hàng',
+    'cancel_order' => 'Huỷ đơn hàng',
+    'product_id' => 'Mã sản phẩm',
 ];

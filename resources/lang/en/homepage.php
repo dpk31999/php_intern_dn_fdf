@@ -45,8 +45,11 @@ return [
     'action' => 'Action',
     'close' => 'Close',
 
-    'chose_child_cate' => 'Chose child category',
-    'child_cate' => 'Child categories',
+    'profile' => 'Profile',
+    'orderd_history' => 'Order history',
+
+    'chosed_childd_cate' => 'Chose child category',
+    'childd_cate' => 'Child categories',
 
     'suggest_succes' => 'Your suggest will be reviewed and approved by the administrator!',
     'send_suggest' => 'Send suggest',
@@ -56,7 +59,20 @@ return [
     'exist_product' => 'This product is exist in your favorite',
     'add_favorite_success' => 'Product has been added to your favorite',
 
-    'favorite_product' => 'List favorite product',
-    'remove_favorite_success' => 'Remove favorite successful',
-    'remove_favorite_fail' => 'Remove favorite failure',
+    'favorited_product' => 'List favorite product',
+    'removed_favorited_success' => 'Remove favorite successful',
+    'removed_favorited_fail' => 'Remove favorite failure',
+
+    'totald_orderd_ind_website' => 'Total your order in website',
+    'detaild_order' => 'Detail order',
+    'orderd_status' => 'Status of order',
+
+    'orderd_done' => 'Order has been completed',
+    'orderd_pending' => 'Orders is pending',
+    'orderd_cancel' => 'Order has been cancelled',
+    'orderd_id' => 'Order Id',
+    'orderd_date' => 'Order date',
+    'canceld_order' => 'Cancel order',
+    'productd_id' => 'Product ID',
+
 ];
