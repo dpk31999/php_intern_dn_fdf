@@ -618,4 +618,66 @@ $(document).ready(function () {
             }
         })
     });
+
+    $('.order-bar').on('click', function () {
+        var type = $(this).data('type');
+
+        $.ajax({
+            method: 'GET',
+            url: '/order/' + type + '/type',
+            success: function (data) {
+                var html = '';
+                if (Object.keys(data).length > 0) {
+                    Object.keys(data).forEach(key => {
+                        var btn_cancel = '';
+                        var formattedDate = new Date(data[key].created_at);
+                        var d = formattedDate.getDate();
+                        var m =  formattedDate.getMonth();
+                        m += 1;
+                        var y = formattedDate.getFullYear();
+                        var result = d + "-" + m + "-" + y;
+                        if (data[key].status == 'Pending') {
+                            btn_cancel = '<td><a class="btn btn-danger cursor btn-cancel-order" data-order-id="'+ data[key].id +'">Cancel order</a></td>';
+                        }
+
+                        html += '<tr id="order-'+ data[key].id +'">' +
+                                '<td>#'+ data[key].id +'</td>' +
+                                ' <td>'+ result +'</td>' +
+                                '<td>'+ data[key].totalPrice +'</td>' +
+                                '<td>'+ data[key].status +'</td>' +
+                                btn_cancel +
+                                '</tr>';
+                    });
+                }
+                $('#list_order').html(html);
+            }
+        });
+    });
+
+    $('body').on('click', '.btn-cancel-order', function () {
+        var id = $(this).data('order-id');
+
+        $.ajax({
+            method: 'PUT',
+            url: '/order/' + id,
+            success: function (data) {
+                var btn_cancel = '';
+                var formattedDate = new Date(data.created_at);
+                var d = formattedDate.getDate();
+                var m =  formattedDate.getMonth();
+                m += 1;
+                var y = formattedDate.getFullYear();
+                var result = d + "-" + m + "-" + y;
+                if (data.status == 'Pending') {
+                    btn_cancel = '<td><a class="btn btn-danger cursor btn-cancel-order" data-order-id="'+ data.id +'">Cancel order</a></td>';
+                }
+                var html = '<td>#'+ data.id +'</td>' +
+                            ' <td>'+ result +'</td>' +
+                            '<td>'+ data.totalPrice +'</td>' +
+                            '<td>'+ data.status +'</td>' +
+                            btn_cancel;
+                $('#order-' + id).html(html);
+            }
+        })
+    });
 });

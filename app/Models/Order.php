@@ -25,4 +25,14 @@ class Order extends Model
                     ->withPivot('quantity')
                     ->withTimestamps();
     }
+
+    public function getTotalPriceAttribute()
+    {
+        $total = 0;
+        foreach ($this->orderDetails as $product) {
+            $total += $product->price * $product->pivot->quantity;
+        }
+
+        return $total;
+    }
 }

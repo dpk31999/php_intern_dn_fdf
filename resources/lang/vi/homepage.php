@@ -41,6 +41,9 @@ return [
     'rating-break' => 'Bảng xếp hạng đánh giá',
     'add-to-cart' => 'Thêm vào giỏ hàng',
 
+    'profile' => 'Thông tin cá nhân',
+    'order-history' => 'Lịch sửa đơn hàng',
+
     'chose-child-cate' => 'Chọn danh mục con',
     'child-cate' => 'Danh mục con',
 
@@ -55,4 +58,16 @@ return [
     'favorite-product' => 'Danh sách sản phẩm yêu thích',
     'remove-favorite-success' => 'Xoá yêu thích thành công',
     'remove-favorite-fail' => 'Xoá yêu thích thất bại',
+
+    'total-order-in-website' => 'Danh sách đơn hàng trên website',
+    'detail-order' => 'Chi tiết đơn hàng',
+    'order-status' => 'Tình trạng của đơn hàng',
+
+    'order-done' => 'Các đơn hàng đã hoàn thành',
+    'order-pending' => 'Các đơn hàng đang chờ',
+    'order-cancel' => 'Các đơn hàng đã huỷ',
+    'order-id' => 'Mã đơn hàng',
+    'order-date' => 'Ngày đặt hàng',
+    'cancel-order' => 'Huỷ đơn hàng',
+    'product-id' => 'Mã sản phẩm',
 ];

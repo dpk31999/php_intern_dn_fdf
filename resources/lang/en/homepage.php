@@ -41,6 +41,9 @@ return [
     'rating-break' => 'Rating breakdown',
     'add-to-cart' => 'Add To Cart',
 
+    'profile' => 'Profile',
+    'order-history' => 'Order history',
+
     'chose-child-cate' => 'Chose child category',
     'child-cate' => 'Child categories',
 
@@ -55,4 +58,17 @@ return [
     'favorite-product' => 'List favorite product',
     'remove-favorite-success' => 'Remove favorite successful',
     'remove-favorite-fail' => 'Remove favorite failure',
+
+    'total-order-in-website' => 'Total your order in website',
+    'detail-order' => 'Detail order',
+    'order-status' => 'Status of order',
+
+    'order-done' => 'Order has been completed',
+    'order-pending' => 'Orders is pending',
+    'order-cancel' => 'Order has been cancelled',
+    'order-id' => 'Order Id',
+    'order-date' => 'Order date',
+    'cancel-order' => 'Cancel order',
+    'product-id' => 'Product ID',
+
 ];
