@@ -76,4 +76,7 @@ return [
 
     'best-selling' => 'Những sản phẩm bán chạy nhất',
     'desc-best-selling' => 'Sản phẩm được khách hàng lựa chọn mua nhiều nhất',
+
+    'email-exist' => 'Email đã tồn tại trong hệ thống.',
+    'back-to-home' => 'Trở về trang chủ',
 ];
