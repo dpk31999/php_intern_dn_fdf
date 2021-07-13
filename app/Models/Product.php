@@ -38,6 +38,21 @@ class Product extends Model
 
     public function favoriteProducts()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'favorite_products');
+    }
+
+    public function getAvgRatingAttribute()
+    {
+        $total_star = 0;
+
+        if ($this->ratings->count() == 0) {
+            return 0;
+        } else {
+            foreach ($this->ratings as $rating) {
+                $total_star += $rating->pivot->num_rated;
+            }
+
+            return $total_star / ($this->ratings->count());
+        }
     }
 }

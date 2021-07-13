@@ -43,6 +43,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.products.index') }}"><i class="fas fa-hamburger fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('products.products')</span></a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.categories.index') }}"><i class="fa fa-list-alt fa-sm fa-fw mr-2 text-gray-400"></i><span>@lang('categories.categories')</span></a>
                 </li>
 
