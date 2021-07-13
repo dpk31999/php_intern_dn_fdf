@@ -70,4 +70,10 @@ return [
     'order-date' => 'Ngày đặt hàng',
     'cancel-order' => 'Huỷ đơn hàng',
     'product-id' => 'Mã sản phẩm',
+
+    'interest-products' => 'Những sản phẩm được quan tâm',
+    'desc-interested' => 'Những sản phẩm được khách hàng quan tâm nhiều nhất',
+
+    'best-selling' => 'Những sản phẩm bán chạy nhất',
+    'desc-best-selling' => 'Sản phẩm được khách hàng lựa chọn mua nhiều nhất',
 ];
