@@ -80,4 +80,7 @@ return [
 
     'best_selling' => 'Best selling products',
     'desc_best_selling' => 'The products that customers are most bought',
+
+    'email_exist' => 'Email already taken.',
+    'back_to_home' => 'Back to Home',
 ];

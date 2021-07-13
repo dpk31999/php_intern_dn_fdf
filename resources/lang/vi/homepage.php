@@ -80,4 +80,7 @@ return [
 
     'best_selling' => 'Các sản phẩm bán chạy nhất',
     'desc_best_selling' => 'Các sản phẩm được khách hàng mua nhiều nhất',
+
+    'email_exist' => 'Email đã tồn tại trong hệ thống.',
+    'back_to_home' => 'Trở về trang chủ',
 ];
