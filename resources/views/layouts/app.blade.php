@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,20 +25,31 @@
 
     <link href="{{ asset('css/client/alllib.css') }}" rel="stylesheet">
 </head>
-<body>
+
+<body class="pr-0">
     <!-- Start header -->
-	@include('layouts.header')
-	<!-- End header -->
+    @include('layouts.header')
+    <!-- End header -->
 
-	@yield('content')
+    <div class="content">
+        @yield('content')
+    </div>
 
-	<!-- Start Footer -->
-	@include('layouts.footer')
-	<!-- End Footer -->
+    <!-- Start Footer -->
+    @include('layouts.footer')
+    <!-- End Footer -->
 
-	<a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fas fa-plane" aria-hidden="true"></i></a>
+	@include('partials.login')
+	@include('partials.register')
+    @include('partials.forgot')
 
-	<script src="{{ asset('js/client/jquery.min.js') }}" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fas fa-plane"
+            aria-hidden="true"></i></a>
+
+    <script src="{{ asset('js/client/jquery.min.js') }}"></script>
     <script src="{{ asset('js/client/alllib.js') }}"></script>
+	<script src="{{ asset('js/client/home.js') }}"></script>
+    <script src="{{ asset('js/client/bootstrap.min.js') }}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
