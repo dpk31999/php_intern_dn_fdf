@@ -55,9 +55,9 @@ class ProductController extends Controller
                 'description' => $request->description,
             ]);
 
-            return redirect()->route('admin.products.index')->with('message', trans('products.message-create-success'));
+            return redirect()->route('admin.products.index')->with('message', trans('products.message_create_success'));
         } catch (Throwable $e) {
-            return redirect()->route('admin.products.index')->with('error', trans('products.message-create-fail'));
+            return redirect()->route('admin.products.index')->with('error', trans('products.message_create_fail'));
         }
     }
 
@@ -101,9 +101,9 @@ class ProductController extends Controller
             $product->price = $request->price;
             $product->save();
 
-            return redirect()->route('admin.products.index')->with('message', trans('products.message-update-success'));
+            return redirect()->route('admin.products.index')->with('message', trans('products.message_update_success'));
         } catch (Throwable $e) {
-            return redirect()->route('admin.products.index')->with('error', trans('products.message-update-fail'));
+            return redirect()->route('admin.products.index')->with('error', trans('products.message_update_fail'));
         }
     }
 
@@ -131,7 +131,7 @@ class ProductController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => trans('products.message-delete-success'),
+                'message' => trans('products.message_delete_success'),
             ], 200);
         } catch (Throwable $e) {
             DB::rollBack();

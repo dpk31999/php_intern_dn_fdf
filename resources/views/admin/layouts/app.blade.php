@@ -15,7 +15,7 @@
     <!-- Locale Session-->
     <meta name="locale" content="{{ session()->get('locale') }}">
 
-    <title>@lang('auth.title-admin')</title>
+    <title>@lang('auth.title_admin')</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -28,12 +28,12 @@
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-green sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.home') }}">
-                <div class="sidebar-brand-text mx-3">@lang('auth.title-admin')</div>
+                <div class="sidebar-brand-text mx-3">@lang('auth.title_admin')</div>
             </a>
             <hr class="sidebar-divider my-0">
             @auth('admin')
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('admin.home') }}" style="text-align: center"><span>@lang('auth.title-admin')</span></a>
+                        <a class="nav-link" href="{{ route('admin.home') }}" style="text-align: center"><span>@lang('auth.title_admin')</span></a>
                 </li>
 
                 <hr class="sidebar-divider">

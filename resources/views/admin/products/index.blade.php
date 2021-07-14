@@ -11,7 +11,7 @@
         <div class="icon_sub">
             <a href="{{ route('admin.products.create') }}">
                 <i class="fas fa-plus-circle fa-lg fa-fw mr-2 color__admin "></i>
-                @lang('products.add-product')
+                @lang('products.add_product')
             </a>
         </div>
         @include('common.message')
@@ -30,11 +30,11 @@
                         <table class="table table-st">
                             <thead class="color__theme">
                                 <tr>
-                                    <th>@lang('products.name-cate')</th>
-                                    <th>@lang('products.name-product')</th>
+                                    <th>@lang('products.name_cate')</th>
+                                    <th>@lang('products.name_product')</th>
                                     <th>@lang('products.price')</th>
-                                    <th>@lang('products.num-image')</th>
-                                    <th>@lang('products.avg-rate')</th>
+                                    <th>@lang('products.num_image')</th>
+                                    <th>@lang('products.avg_rate')</th>
                                     <th></th>
                                 </tr>
                             </thead>

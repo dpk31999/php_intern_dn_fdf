@@ -11,7 +11,7 @@
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.about')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.suggest')</a></li>
                     <li class="nav-item"><a class="nav-link" href="">@lang('homepage.cart')</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.check-out')</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.check_out')</a></li>
                     @guest('web')
                         <li class="nav-item"><a class="nav-link" href="">@lang('homepage.login')</a></li>
                         <li class="nav-item"><a class="nav-link" href="">@lang('homepage.register')</a></li>

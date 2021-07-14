@@ -104,7 +104,7 @@ class UserController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => trans('users.message-delete-success'),
+                'message' => trans('users.message_delete_success'),
             ], 200);
         } catch (Exception $e) {
             DB::rollBack();

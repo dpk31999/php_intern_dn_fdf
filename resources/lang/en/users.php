@@ -3,24 +3,24 @@
 return [
 
     'users' => 'Users',
-    'user-system' => 'User Of System',
+    'user_system' => 'User Of System',
     'fullname' => 'Fullname',
     'email' => 'Email',
-    'phone-number' => 'Phone number',
-    'num-order' => 'Number of orders',
-    'num-suggest' => 'Number of suggest products',
-    'num-favorite' => 'Number of favorite products',
+    'phone_number' => 'Phone number',
+    'num_order' => 'Number of orders',
+    'num_suggest' => 'Number of suggest products',
+    'num_favorite' => 'Number of favorite products',
     'detail' => 'Detail',
     'delete' => 'Delete',
     'address' => 'Address',
-    'create-at' => 'Create at',
-    
+    'create_at' => 'Create at',
+
     'hello' => 'Hello!',
     'dashboard' => 'Dashboard',
     'home' => 'Home',
     'back' => 'Back',
 
-    'message-delete-success' => 'Delete Successful',
-    'message-delete-fail' => 'Delete Failure',
+    'message_delete_success' => 'Delete Successful',
+    'message_delete_fail' => 'Delete Failure',
 
 ];

@@ -28,17 +28,17 @@
             </select>
         </div>
         <div id="chose_parent" class="form-group d-none">
-            <label for="parent">@lang('categories.chose-parent') </label>
+            <label for="parent">@lang('categories.chose_parent') </label>
             <select name="parent" id="parent" class="form-control">
                 @forelse ($categories as $cate)
                     <option value="{{ $cate->id }}">{{ $cate->name }}</option>
                 @empty
-                    <option disabled selected>@lang('categories.there-no-parent')</option>
+                    <option disabled selected>@lang('categories.there_no_parent')</option>
                 @endforelse
             </select>
         </div>
         <div class="form-group">
-            <label for="name">@lang('categories.cate-name') </label>
+            <label for="name">@lang('categories.cate_name') </label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"  value="{{ old('name') }}" required autocomplete="name" required autofocus>
 
             @error('name')

@@ -32,7 +32,7 @@ class LoginController extends Controller
         Auth::guard('admin')->logout();
         return redirect()
             ->route('admin.login')
-            ->with('message', trans('auth.logout-success'));
+            ->with('message', trans('auth.logout_success'));
     }
 
     private function loginFailed()

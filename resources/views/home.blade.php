@@ -34,7 +34,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 text-center">
                 <div class="inner-column">
                     <h1>@lang('')</span></h1>
-                    <h4>@lang('homepage.little-history')</h4>
+                    <h4>@lang('homepage.little_history')</h4>
                     <p>@lang('homepage.thank')</p>
                     <a class="btn btn-lg btn-circle btn-outline-new-white" href="#">@lang('homepage.menu')</a>
                 </div>
@@ -68,8 +68,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading-title text-center">
-                    <h2>@lang('homepage.special-menu')</h2>
-                    <p>@lang('homepage.menu-discription')</p>
+                    <h2>@lang('homepage.special_menu')</h2>
+                    <p>@lang('homepage.menu_discription')</p>
                 </div>
             </div>
         </div>

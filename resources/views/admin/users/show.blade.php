@@ -41,7 +41,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">@lang('users.phone-number')</h6>
+                                <h6 class="mb-0">@lang('users.phone_number')</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 {{ $user->phone }}
@@ -59,7 +59,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">@lang('users.create-at')</h6>
+                                <h6 class="mb-0">@lang('users.create_at')</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 {{ $user->created_at }}
@@ -68,7 +68,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-6">
-                                <h6 class="mb-0">@lang('users.num-order')</h6>
+                                <h6 class="mb-0">@lang('users.num_order')</h6>
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <strong>{{ $user->orders->count() }}</strong>
@@ -77,7 +77,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-6">
-                                <h6 class="mb-0">@lang('users.num-suggest')</h6>
+                                <h6 class="mb-0">@lang('users.num_suggest')</h6>
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <strong>{{ $user->suggestProducts->count() }}</strong>
@@ -86,7 +86,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-6">
-                                <h6 class="mb-0">@lang('users.num-favorite')</h6>
+                                <h6 class="mb-0">@lang('users.num_favorite')</h6>
                             </div>
                             <div class="col-sm-6 text-secondary">
                                 <strong>{{ $user->favoriteProducts->count() }}</strong>
