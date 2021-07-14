@@ -55,4 +55,9 @@ class Product extends Model
             return $total_star / ($this->ratings->count());
         }
     }
+
+    public function getFirstImageAttribute()
+    {
+        return $this->images->first()->image_path ?? 'img/default-image-product.png';
+    }
 }
