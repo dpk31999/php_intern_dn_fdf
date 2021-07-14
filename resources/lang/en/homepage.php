@@ -79,4 +79,9 @@ return [
 
     'email-exist' => 'Email already taken.',
     'back-to-home' => 'Back to Home',
+
+    'thank-mail' => 'Thank you for using our service !',
+    'your-product-bought' => 'You bought products',
+    'your-order-done' => 'Your order has been completed',
+    'your-order-cancel' => 'Your order has been canceled',
 ];

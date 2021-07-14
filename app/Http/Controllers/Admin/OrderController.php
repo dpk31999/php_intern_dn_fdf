@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StatusRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Events\SendMailOrderUser;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StatusRequest;
 
 class OrderController extends Controller
 {
@@ -80,6 +81,8 @@ class OrderController extends Controller
         } else {
             $order->status = $request->status;
             $order->save();
+
+            event(new SendMailOrderUser($order));
 
             return redirect()->back()->with('message', trans('order.update-order-success'));
         }
