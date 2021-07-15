@@ -57,6 +57,14 @@
                                 @lang('auth.login_fb')
                             </a>
 
+                            <a class="btn btn-success cursor mt-2 mb-2" href="{{ route('social.callback', 'google') }}">
+                                @lang('auth.login_gg')
+                            </a>
+
+                            <a class="btn btn-dark cursor" href="{{ route('social.callback', 'github') }}">
+                                @lang('auth.login_gh')
+                            </a>
+
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" data-dismiss="modal" data-toggle="modal" data-target="#modalRegister">
                                     @lang('auth.dont_have_account')

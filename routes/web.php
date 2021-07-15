@@ -70,5 +70,5 @@ Auth::routes();
 
 Route::get('change/{locale}', [LocaleController::class, 'index'])->name('locale');
 
-Route::get('oauth/{driver}', [OAuthController::class, 'redirectToProvider'])->name('social.facebook.callback');
+Route::get('oauth/{driver}', [OAuthController::class, 'redirectToProvider'])->name('social.callback');
 Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleProviderCallback']);
