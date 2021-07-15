@@ -60,4 +60,9 @@ class Product extends Model
     {
         return $this->images->first()->image_path ?? 'img/default-image-product.png';
     }
+
+    public function scopeOfCategory($query, $id)
+    {
+        return $query->where('cate_id', $id);
+    }
 }

@@ -95,8 +95,11 @@
                                             <img src="/storage/{{ $product->first_image }}" alt="Image" width="254" height="152">
                                             <div class="why-text">
                                                 <h4>{{ $product->name }}</h4>
-                                                <p>{{ $product->description }}</p>
-                                                <h5> {{ number_format($product->price, 2) }} vnd</h5>
+                                                <p>@lang('products.avg_rate'): {{ $product->avg_rating }}* ({{$product->ratings->count()}})</p>
+                                                <div class="d-flex justify-content-around">
+                                                    <h5> {{ number_format($product->price, 2) }} vnd</h5>
+                                                    <i class="fas fa-shopping-cart cursor"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -113,8 +116,11 @@
                                             <img src="/storage/{{ $product->first_image }}" alt="Image" width="254" height="152">
                                             <div class="why-text">
                                                 <h4>{{ $product->name }}</h4>
-                                                <p>{{ $product->description }}</p>
-                                                <h5> {{ number_format($product->price, 2) }} vnd</h5>
+                                                <p>@lang('products.avg_rate'): {{ $product->avg_rating }}* ({{$product->ratings->count()}})</p>
+                                                <div class="d-flex justify-content-around">
+                                                    <h5> {{ number_format($product->price, 2) }} vnd</h5>
+                                                    <i class="fas fa-shopping-cart cursor"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

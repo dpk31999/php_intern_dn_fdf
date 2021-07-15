@@ -104,4 +104,39 @@ $(document).ready(function () {
             }
         })
     });
+
+    // In menu
+    $('.btn-show-product').on('click', function () {
+        var id = $(this).data('cate-id');
+
+        var locale = $('meta[name="locale"]').attr('content');
+
+        var message;
+
+        locale == 'en' ? message = 'Avarage rate of product' : message = 'Đánh giá trung bình';
+
+        $.ajax({
+            method: 'GET',
+            url: '/menu/get-product-by-cate-id/' + id,
+            success: function (data) {
+                var html = '';
+                Object.keys(data).forEach(key => {
+                    html += '<div class="col-md-4 special-grid drinks">' +
+                            '<div class="gallery-single fix">' +
+                                '<img src="/storage/'+ data[key].image +'" alt="Image" width="254" height="152">' +
+                                '<div class="why-text">' +
+                                    '<h4>'+ data[key].name +'</h4>' +
+                                    '<p>'+ message + ': ' + data[key].avg_rating + '* (' + data[key].ratings.length + ')' + '</p>' +
+                                    '<div class="d-flex justify-content-around">' +
+                                    '<h5>'+ data[key].price +' vnd</h5>' +
+                                    '<i class="fas fa-shopping-cart cursor"></i></a>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+                });
+                $('#list_products').html(html);
+            }
+        });
+    });
 });
