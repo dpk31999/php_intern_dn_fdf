@@ -40,5 +40,9 @@ return [
     'not_login' => 'Bạn chưa đăng nhập',
     'rating_break' => 'Bảng xếp hạng đánh giá',
     'add_to_cart' => 'Thêm vào giỏ hàng',
+    'quantity' => 'Số lượng',
+    'total' => 'Tổng cộng',
+    'action' => 'Hành động',
+    'close' => 'Đóng',
 
 ];

@@ -26,13 +26,13 @@
                     <div class="w-100"></div>
                     <div class="input-group col-md-8 d-flex mb-3">
                         <span class="input-group-btn mr-2">
-                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+                            <button type="button" id="btn_minus" class="btn-minus quantity-left-minus btn" data-type="minus" data-field="">
                                 <i class="fas fa-minus"></i>
                             </button>
                         </span>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                        <input type="text" id="quantity" disabled name="quantity" class="form-control input-number" value="1">
                         <span class="input-group-btn ml-2">
-                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                            <button type="button" class="btn-plus quantity-right-plus btn" data-type="plus" data-field="">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </span>
