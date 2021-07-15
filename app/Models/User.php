@@ -96,4 +96,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(OAuthProvider::class);
     }
+
+    public function getIsLoginOauthAttribute()
+    {
+        if ($this->oauthProviders->count() > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
