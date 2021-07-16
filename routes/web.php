@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,12 @@ Route::post('/products/{product}/rating', [ProductController::class, 'createRati
 Route::post('/cart/{product}/add', [CartController::class, 'store']);
 Route::put('/cart/{product}/update', [CartController::class, 'update']);
 Route::delete('/cart/{product}/delete', [CartController::class, 'destroy']);
+
+Route::middleware('auth:web')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::post('/profile/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar');
+    Route::put('/profile', [ProfileController::class, 'updateInfomation'])->name('profile.info');
+    Route::put('/profile/password/change', [ProfileController::class, 'updatePassword'])->name('profile.password');
+});
 
 Auth::routes();
