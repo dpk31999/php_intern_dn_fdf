@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SuggestController;
 
 /*
@@ -48,5 +49,7 @@ Route::middleware('auth:web')->group(function () {
 });
 
 Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);
+
+Route::get('/search/{word}', [SearchController::class, 'searchProductByName']);
 
 Auth::routes();

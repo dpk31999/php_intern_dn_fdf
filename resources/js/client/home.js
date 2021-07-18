@@ -498,4 +498,41 @@ $(document).ready(function () {
             }
         })
     });
+
+    // search
+    $('#search').on('keyup', function (e) {
+        if (e.which <= 90 && e.which >= 48 || e.which == 8) {
+            var word = $(this).val();
+
+            if (word === '') {
+                return false;
+            }
+
+            $.ajax({
+                method: 'GET',
+                url: '/search/' + word,
+                success: function (data) {
+                    var html = ''
+                    if (Object.keys(data).length > 0) {
+                        Object.keys(data).forEach(key => {
+                            html += '<a href="/products/'+ data[key].id +'" class="item-link">'+ data[key].name +'</a><hr>';
+                        })
+                    } else {
+                        html += '<a class="item-link cursor">Not found</a>';
+                    }
+                    $('#list_search').html(html);
+                    $('#list_search').removeClass('d-none');
+                }
+            });
+        }
+    });
+
+    $(document).click(function (e) {
+        var container = $(".search-chit");
+
+        if (!container.is(e.target)) {
+            $('#list_search').addClass('d-none');
+        }
+    });
+
 });
