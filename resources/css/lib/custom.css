@@ -313,3 +313,11 @@
   text-decoration: none;
   cursor: pointer;
 }
+.icon-parent {
+  position: relative;
+}
+.icon-child {
+  position: absolute;
+  top: 3px;
+  right: -3px;
+}

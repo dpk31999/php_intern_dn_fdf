@@ -16,6 +16,10 @@ $(document).ready(function () {
         })
     });
 
+    $('.btn-logout').on('click', function () {
+        $('#logout-form').submit();
+    });
+
     // login
     $('#loginForm').on('submit', function (e) {
         e.preventDefault();
