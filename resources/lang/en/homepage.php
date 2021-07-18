@@ -53,4 +53,10 @@ return [
 
     'suggest_title' => 'Suggest product',
 
+    'exist_product' => 'This product is exist in your favorite',
+    'add_favorite_success' => 'Product has been added to your favorite',
+
+    'favorite_product' => 'List favorite product',
+    'remove_favorite_success' => 'Remove favorite successful',
+    'remove_favorite_fail' => 'Remove favorite failure',
 ];

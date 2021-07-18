@@ -33,7 +33,6 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 text-center">
                 <div class="inner-column">
-                    <h1>@lang('')</span></h1>
                     <h4>@lang('homepage.little_history')</h4>
                     <p>@lang('homepage.thank')</p>
                     <a class="btn btn-lg btn-circle btn-outline-new-white" href="#">@lang('homepage.menu')</a>
@@ -96,9 +95,10 @@
                                             <div class="why-text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <p>@lang('products.avg_rate'): {{ $product->avg_rating }}* ({{$product->ratings->count()}})</p>
+                                                <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                 <div class="d-flex justify-content-around">
-                                                    <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                     <a href="{{ route('products.show', $product->id) }}"><i class="fas fa-eye cursor"></i></a>
+                                                    <a @auth('web') class="add-my-favorite" @else data-toggle="modal" data-target="#modalLogin" @endauth data-product-id="{{ $product->id }}"><i class="fas fa-heart cursor"></i></a>
                                                     <a class="add-to-cart" data-product-id="{{ $product->id }}"><i class="fas fa-shopping-cart cursor"></i></a>
                                                 </div>
                                             </div>
@@ -118,9 +118,10 @@
                                             <div class="why-text">
                                                 <h4>{{ $product->name }}</h4>
                                                 <p>@lang('products.avg_rate'): {{ $product->avg_rating }}* ({{$product->ratings->count()}})</p>
+                                                <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                 <div class="d-flex justify-content-around">
-                                                    <h5> {{ number_format($product->price, 2) }} vnd</h5>
                                                     <a href="{{ route('products.show', $product->id) }}"><i class="fas fa-eye cursor"></i></a>
+                                                    <a @auth('web') class="add-my-favorite" @else data-toggle="modal" data-target="#modalLogin" @endauth data-product-id="{{ $product->id }}"><i class="fas fa-heart cursor"></i></a>
                                                     <a class="add-to-cart" data-product-id="{{ $product->id }}"><i class="fas fa-shopping-cart cursor"></i></a>
                                                 </div>
                                             </div>
