@@ -449,4 +449,53 @@ $(document).ready(function () {
             }
         })
     });
+
+    // suggest
+    $('#cateInputSuggest').on('change', function () {
+        var id = $("#cateInputSuggest option:selected").val();
+
+        $.ajax({
+            method : 'GET',
+            url : '/category/' + id + '/child',
+            success: function (data) {
+                $('#cate-hidden').removeClass('d-none');
+                $('#cate_child').text('');
+                Object.keys(data.cate_child).forEach(key => {
+                    $('#cate_child').append('<option value="'+ data.cate_child[key].id +'">'+ data.cate_child[key].name +'</option>');
+                });
+            }
+        });
+    });
+
+    $('#form_suggest').on('submit', function (e) {
+        e.preventDefault();
+        let formData = $(this).serializeArray();
+        $(".invalid-feedback").children("strong").text("");
+        $("#form_suggest input").removeClass("is-invalid");
+        $.ajax({
+            method: "POST",
+            headers: {
+                Accept: "application/json"
+            },
+            url: '/suggest',
+            data: formData,
+            success: function (response) {
+                console.log(response)
+                $("#form_suggest input").val('');
+                $(".alert-suggest").children("strong").text(response.message);
+                $(".alert-suggest").removeClass('d-none');
+            },
+            error: (response) => {
+                if (response.status === 422) {
+                    let errors = response.responseJSON.errors;
+                    Object.keys(errors).forEach(function (key) {
+                        $("#" + key + "InputSuggest").addClass("is-invalid");
+                        $("#" + key + "ErrorSuggest").children("strong").text(errors[key][0]);
+                    });
+                } else if (response.status === 401) {
+                    $('#modalLogin').modal('show');
+                }
+            }
+        })
+    });
 });
