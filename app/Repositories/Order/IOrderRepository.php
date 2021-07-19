@@ -9,4 +9,6 @@ interface IOrderRepository
     public function getOrderByType($type);
 
     public function cancelOrderOfCurrentUser($id);
+
+    public function handleCheckout($cart);
 }
