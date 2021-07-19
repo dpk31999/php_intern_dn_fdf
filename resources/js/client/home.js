@@ -417,4 +417,36 @@ $(document).ready(function () {
             }
         })
     });
+
+    // checkout form
+    $('#form_check_out').on('submit', function (e) {
+        e.preventDefault();
+        let formData = $(this).serializeArray();
+        $(".invalid-feedback").children("strong").text("");
+        $("#form_check_out input").removeClass("is-invalid");
+        $.ajax({
+            method: "POST",
+            headers: {
+                Accept: "application/json"
+            },
+            url: '/checkout',
+            data: formData,
+            success: function (response) {
+                $("#form_check_out input").val('');
+                $(".alert-checkout").children("strong").text(response.message);
+                $(".alert-checkout").removeClass('d-none');
+            },
+            error: (response) => {
+                if (response.status === 422) {
+                    let errors = response.responseJSON.errors;
+                    Object.keys(errors).forEach(function (key) {
+                        $("#" + key + "InputCheckout").addClass("is-invalid");
+                        $("#" + key + "ErrorCheckout").children("strong").text(errors[key][0]);
+                    });
+                } else if (response.status === 401) {
+                    $('#modalLogin').modal('show');
+                }
+            }
+        })
+    });
 });
