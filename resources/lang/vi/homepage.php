@@ -45,4 +45,11 @@ return [
     'action' => 'Hành động',
     'close' => 'Đóng',
 
+    'chose_child_cate' => 'Chọn danh mục con',
+    'child_cate' => 'Danh mục con',
+
+    'suggest_succes' => 'Yêu cầu của bạn sẽ được quản trị viên xem xét và thêm vào!',
+    'send_suggest' => 'Gửi yêu cầu',
+
+    'suggest_title' => 'Yêu cầu thêm sản phẩm',
 ];

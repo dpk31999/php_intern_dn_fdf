@@ -59,8 +59,8 @@ class User extends Authenticatable
 
     public function suggestProducts()
     {
-        return $this->belongsToMany(Category::class, 'suggest_products', 'cate_id', 'user_id')
-                    ->withPivot('name', 'status');
+        return $this->belongsToMany(Category::class, 'suggest_products', 'user_id', 'cate_id')
+                    ->withPivot('name', 'status')->withTimestamps();
     }
 
     public function orders()

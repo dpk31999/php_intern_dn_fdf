@@ -30,7 +30,20 @@ return [
     'status_order' => [
         'done' => 'Done',
         'pending' => 'Pending',
-        'refuse' => 'Cancel',
+        'cancel' => 'Cancel',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Status of Suggest
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'status_suggest' => [
+        'done' => 'Done',
+        'pending' => 'Pending',
+        'refuse' => 'Refuse',
     ],
 
     /*

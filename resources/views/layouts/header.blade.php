@@ -11,7 +11,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item {{ Route::is('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">@lang('homepage.home')</a></li>
                     <li class="nav-item {{ Route::is('menu') ? 'active' : '' }}"><a class="nav-link" href="{{ route('menu') }}">@lang('homepage.menu')</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.suggest')</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('suggest.index') }}">@lang('homepage.suggest')</a></li>
                     <li class="nav-item">
                         <a class="nav-link d-flex align-items-center cursor" data-toggle="modal" data-target="#cartModal">
                             @lang('homepage.cart') <span class="badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
