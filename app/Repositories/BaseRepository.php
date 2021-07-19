@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Repositories\IRepository;
+use Illuminate\Support\Facades\Auth;
 
 abstract class BaseRepository implements IRepository
 {
@@ -101,5 +102,10 @@ abstract class BaseRepository implements IRepository
         }
 
         return false;
+    }
+
+    public function currentUser()
+    {
+        return Auth::guard('web')->user();
     }
 }

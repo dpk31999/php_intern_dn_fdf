@@ -29,6 +29,16 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\ProductImage\IProductImageRepository::class,
             \App\Repositories\ProductImage\ProductImageRepository::class
         );
+
+        $this->app->singleton(
+            \App\Repositories\User\IUserRepository::class,
+            \App\Repositories\User\UserRepository::class
+        );
+
+        $this->app->singleton(
+            \App\Repositories\Order\IOrderRepository::class,
+            \App\Repositories\Order\OrderRepository::class
+        );
     }
 
     /**

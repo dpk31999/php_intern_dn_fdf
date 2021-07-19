@@ -10,6 +10,8 @@ interface IRepository
      */
     public function getAll();
 
+    public function currentUser();
+
     /**
      * Get one
      * @param $id

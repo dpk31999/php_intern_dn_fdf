@@ -48,4 +48,30 @@ class ProductRepository extends BaseRepository implements IProductRepository
 
         $product->delete();
     }
+
+    public function searchProductByName($word)
+    {
+        return $this->model->searchByName($word)->get();
+    }
+
+    public function createRating($data, $id)
+    {
+        $this->currentUser()->ratings()->attach($id, [
+            'num_rated' => $data['rating'],
+            'content' => $data['content'],
+        ]);
+
+        $product = $this->findOrFail($id);
+
+        $rating = $product->ratings()->get()->first();
+
+        return $rating;
+    }
+
+    public function getSpecifyRating($id, $num_rate)
+    {
+        $product = $this->findOrFail($id);
+
+        return $product->getSpecifyRating($num_rate);
+    }
 }
