@@ -51,4 +51,20 @@ class OrderRepository extends BaseRepository implements IOrderRepository
 
         return $order;
     }
+
+    public function handleCheckout($cart)
+    {
+        $order = $this->currentUser()->orders()->create([
+            'status' => config('app.status_order.pending'),
+        ]);
+
+        foreach ($cart->items as $item) {
+            $order->orderDetails()->attach($item->id, [
+                'quantity' => $item->quantity,
+            ]);
+        }
+        // send mail
+
+        session()->forget('cart');
+    }
 }

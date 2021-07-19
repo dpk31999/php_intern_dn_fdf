@@ -74,4 +74,16 @@ class ProductRepository extends BaseRepository implements IProductRepository
 
         return $product->getSpecifyRating($num_rate);
     }
+
+    public function getAllByCategory($id_cate)
+    {
+        $products = $this->model->ofCategory($id_cate)->get();
+
+        foreach ($products as $product) {
+            $product->image = $product->first_image;
+            $product->avg_rating = $product->avg_rating;
+        }
+
+        return $products;
+    }
 }

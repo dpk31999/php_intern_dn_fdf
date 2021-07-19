@@ -16,7 +16,7 @@ class UserRepository extends BaseRepository implements IUserRepository
 
     public function all()
     {
-        $users = $this->_model::withCount([
+        $users = $this->model::withCount([
             'orders',
             'suggestProducts',
         ])->paginate(config('app.number_paginate'));
@@ -69,5 +69,35 @@ class UserRepository extends BaseRepository implements IUserRepository
     {
         $this->currentUser()->password = Hash::make($data['password']);
         $this->currentUser()->save();
+    }
+
+    public function checkListFavoriteHasThisProduct($product_id)
+    {
+        if ($this->currentUser()->favoriteProducts->where('id', $product_id)->count() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function addProductToListFavorite($product_id)
+    {
+        $this->currentUser()->favoriteProducts()->attach($product_id);
+    }
+
+    public function removeProductFromListFavorite($product_id)
+    {
+        $this->currentUser()->favoriteProducts()->detach($product_id);
+    }
+
+    public function getAllFavoriteOfCurrentUser()
+    {
+        $favorites = $this->currentUser()->favoriteProducts;
+
+        foreach ($favorites as $favorite) {
+            $favorite->image = $favorite->first_image;
+        }
+
+        return $favorites;
     }
 }
