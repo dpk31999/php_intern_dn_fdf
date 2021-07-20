@@ -23,7 +23,8 @@ class Category extends Model
 
     public function suggestProducts()
     {
-        return $this->belongsToMany(User::class, 'suggest_products', 'cate_id', 'user_id')->withPivot('name', 'status');
+        return $this->belongsToMany(User::class, 'suggest_products', 'cate_id', 'user_id')
+                    ->withPivot('name', 'status');
     }
 
     public function childCategories()

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SuggestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,11 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+    Route::get('/suggest', [SuggestController::class, 'index'])->name('suggest.index');
+    Route::post('/suggest', [SuggestController::class, 'store']);
 });
+
+Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);
 
 Auth::routes();

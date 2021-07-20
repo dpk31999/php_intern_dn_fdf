@@ -45,4 +45,12 @@ return [
     'action' => 'Action',
     'close' => 'Close',
 
+    'chose_child_cate' => 'Chose child category',
+    'child_cate' => 'Child categories',
+
+    'suggest_succes' => 'Your suggest will be reviewed and approved by the administrator!',
+    'send_suggest' => 'Send suggest',
+
+    'suggest_title' => 'Suggest product',
+
 ];

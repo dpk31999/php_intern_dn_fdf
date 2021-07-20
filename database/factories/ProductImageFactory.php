@@ -26,7 +26,7 @@ class ProductImageFactory extends Factory
 
         return [
             'product_id' => Product::all()->random()->id,
-            'image_path' => $this->faker->image($dir, 300, 300, null, false),
+            'image_path' => 'image_product/' . $this->faker->image($dir, 300, 300, null, false),
         ];
     }
 }
