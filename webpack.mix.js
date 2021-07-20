@@ -17,6 +17,7 @@ const mix = require('laravel-mix');
     ], 'public/js')
     .js('resources/js/client/home.js', 'public/js/client')
     .js('resources/js/admin/home.js', 'public/js/admin')
+    .js('resources/js/admin/chart.js', 'public/js/admin')
     .js(['resources/js/client/lib/popper.min.js',
         'resources/js/client/lib/isotope.min.js',
         'resources/js/client/lib/baguetteBox.min.js',
