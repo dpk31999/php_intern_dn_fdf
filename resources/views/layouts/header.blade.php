@@ -5,9 +5,13 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbars-rs-food">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2 rounded border border-secondary border-top-0" type="search" placeholder="Search" aria-label="Search">
-                </form>
+                <div class="search-chit form-inline my-2 my-lg-0">
+                    <div class="form-item-rev">
+                    <input id="search" class="form-control form_check mr-sm-2 rounded border border-secondary border-top-0" placeholder="Search name of product">
+                    <div class="search-list-item d-none" id="list_search">
+                    </div>
+                    </div>
+                </div>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item {{ Route::is('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">@lang('homepage.home')</a></li>
                     <li class="nav-item {{ Route::is('menu') ? 'active' : '' }}"><a class="nav-link" href="{{ route('menu') }}">@lang('homepage.menu')</a></li>

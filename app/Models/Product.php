@@ -82,4 +82,9 @@ class Product extends Model
 
         return $count;
     }
+
+    public function scopeSearchByName($query, $word)
+    {
+        return $query->where('name', 'like', '%' . $word . '%');
+    }
 }

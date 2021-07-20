@@ -263,4 +263,24 @@
 .billing-form textarea.form-control {
   height: inherit !important;
 }
-
+.form-item-rev{
+  position: relative;
+}
+.search-list-item{
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgb(153 153 153 / 50%);
+  width: 202px;
+  padding: 10px 20px;
+  border-radius: 4px ;
+}
+.item-link{
+  display: block;
+  width: 100%;
+}
+.item-link:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
