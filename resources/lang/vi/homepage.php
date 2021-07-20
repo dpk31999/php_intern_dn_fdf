@@ -88,4 +88,17 @@ return [
     'your-product-bought' => 'Các sản phẩm đã thanh toán',
     'your-order-done' => 'Đơn hàng của bạn đã thành công',
     'your-order-cancel' => 'Đơn hàng của bạn đã bị huỷ',
+
+    'chart_month_order' => 'Biểu đồ người dùng đặt hàng sản phẩm trong tháng hiện tại',
+    'chart_week_order' => 'Biểu đồ người dùng đặt hàng sản phẩm trong tuần hiện tại',
+    'view_in_month' => 'Xem trong tháng',
+    'view_in_week' => 'Xem trong tuần',
+
+    'mon' => 'Thứ hai',
+    'tue' => 'Thứ ba',
+    'wed' => 'Thứ tư',
+    'thu' => 'Thứ năm',
+    'fri' => 'Thứ sáu',
+    'sat' => 'Thứ bảy',
+    'sun' => 'Chủ nhật',
 ];

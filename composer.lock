@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93bff4fd071bed2aa6d2cbb1c18b9e6f",
+    "content-hash": "1dbd0d4ffc3d6def09264351f144c473",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -119,6 +119,46 @@
             "time": "2021-01-20T22:51:39+00:00"
         },
         {
+            "name": "chartisan/php",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chartisan/PHP.git",
+                "reference": "85d2352077800e9bcb411aec1ff7e4d23eef93a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chartisan/PHP/zipball/85d2352077800e9bcb411aec1ff7e4d23eef93a1",
+                "reference": "85d2352077800e9bcb411aec1ff7e4d23eef93a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Chartisan\\PHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik Campobadal Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "Chartisan's PHP backend",
+            "support": {
+                "issues": "https://github.com/Chartisan/PHP/issues",
+                "source": "https://github.com/Chartisan/PHP/tree/1.2.1"
+            },
+            "time": "2020-11-05T13:13:58+00:00"
+        },
+        {
             "name": "composer/package-versions-deprecated",
             "version": "1.11.99.2",
             "source": {
@@ -190,6 +230,68 @@
                 }
             ],
             "time": "2021-05-24T07:46:03+00:00"
+        },
+        {
+            "name": "consoletvs/charts",
+            "version": "7.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ConsoleTVs/Charts.git",
+                "reference": "cc820595e9bec13fbaf4cf552128860830a0f9e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/cc820595e9bec13fbaf4cf552128860830a0f9e2",
+                "reference": "cc820595e9bec13fbaf4cf552128860830a0f9e2",
+                "shasum": ""
+            },
+            "require": {
+                "chartisan/php": "^1.2.0",
+                "illuminate/console": "^7.14.1|^8.0",
+                "illuminate/contracts": "^7.14.1|^8.0",
+                "illuminate/http": "^7.14.1|^8.0",
+                "illuminate/support": "^7.14.1|^8.0",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConsoleTVs\\Charts\\ChartsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConsoleTVs\\Charts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik C. Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "The missing charting library on laravel, powered by Chartisan",
+            "support": {
+                "issues": "https://github.com/ConsoleTVs/Charts/issues",
+                "source": "https://github.com/ConsoleTVs/Charts/tree/7.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ConsoleTVs",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/ErikCampobadal",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-12-11T02:13:47+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -1970,16 +2072,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.3.0",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "df991fd88693ab703aa403413d83e15f688dae33"
+                "reference": "9738e495f288eec0b187e310b7cdbbb285777dbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/df991fd88693ab703aa403413d83e15f688dae33",
-                "reference": "df991fd88693ab703aa403413d83e15f688dae33",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/9738e495f288eec0b187e310b7cdbbb285777dbe",
+                "reference": "9738e495f288eec0b187e310b7cdbbb285777dbe",
                 "shasum": ""
             },
             "require": {
@@ -2050,7 +2152,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.0"
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.1"
             },
             "funding": [
                 {
@@ -2062,7 +2164,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-05T11:34:13+00:00"
+            "time": "2021-07-14T11:56:39+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -5962,16 +6064,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.8.5",
+            "version": "v1.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "cab38edc00804700518e110df2677ef34c3dbb2e"
+                "reference": "51ecfe0f048f8f8e6c5617e02a1f67ca22817c98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/cab38edc00804700518e110df2677ef34c3dbb2e",
-                "reference": "cab38edc00804700518e110df2677ef34c3dbb2e",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/51ecfe0f048f8f8e6c5617e02a1f67ca22817c98",
+                "reference": "51ecfe0f048f8f8e6c5617e02a1f67ca22817c98",
                 "shasum": ""
             },
             "require": {
@@ -6018,7 +6120,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2021-07-13T14:20:58+00:00"
+            "time": "2021-07-15T07:35:41+00:00"
         },
         {
             "name": "mockery/mockery",

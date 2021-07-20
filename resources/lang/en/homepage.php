@@ -88,4 +88,17 @@ return [
     'your_product_bought' => 'You bought products',
     'your_order_done' => 'Your order has been completed',
     'your_order_cancel' => 'Your order has been canceled',
+
+    'chart_month_order' => 'Chart of user order product in current month',
+    'chart_week_order' => 'Chart of user order product in current week',
+    'view_in_month' => 'View in month',
+    'view_in_week' => 'View in week',
+
+    'mon' => 'Monday',
+    'tue' => 'TuesDay',
+    'wed' => 'Wednesday',
+    'thu' => 'Thursday',
+    'fri' => 'Friday',
+    'sat' => 'Saturday',
+    'sun' => 'Sunday',
 ];
