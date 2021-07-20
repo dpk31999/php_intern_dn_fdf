@@ -28,7 +28,7 @@
 <!-- End slides -->
 
 <!-- Start About -->
-<div class="about-section-box">
+<div id="about" class="about-section-box">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 text-center">
@@ -47,7 +47,7 @@
 <!-- End About -->
 
 <!-- Start QT -->
-<div class="qt-box qt-background">
+<div id="slogan" class="qt-box qt-background">
     <div class="container">
         <div class="row">
             <div class="col-md-8 ml-auto mr-auto text-center">

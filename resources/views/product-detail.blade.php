@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Start All Pages -->
-    <div class="all-page-title page-breadcrumb">
+    <div id="heading" class="all-page-title page-breadcrumb">
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-12">
@@ -13,7 +13,7 @@
     </div>
     <div class="container main-1">
         <!-- End All Pages -->
-        <div class="row">
+        <div id="details_product" class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
                 <img src="/storage/{{ $product->first_image }}" class="img-fluid" alt="Colorlib Template">
             </div>
