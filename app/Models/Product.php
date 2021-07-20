@@ -87,4 +87,17 @@ class Product extends Model
     {
         return $query->where('name', 'like', '%' . $word . '%');
     }
+
+    public function getSpecifyRating($num_rate)
+    {
+        $ratings = [];
+
+        foreach ($this->ratings as $rating) {
+            if ($rating->pivot->num_rated == $num_rate) {
+                $ratings[] = $rating;
+            }
+        }
+
+        return $ratings;
+    }
 }
