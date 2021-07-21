@@ -52,4 +52,11 @@ return [
     'send_suggest' => 'Gửi yêu cầu',
 
     'suggest_title' => 'Yêu cầu thêm sản phẩm',
+
+    'exist_product' => 'Sản phẩm này đã tồn tại trong yêu thích của bạn',
+    'add_favorite_success' => 'Sản phẩm đã được thêm vào yêu thích của bạn',
+
+    'favorite_product' => 'Danh sách sản phẩm yêu thích',
+    'remove_favorite_success' => 'Xoá yêu thích thành công',
+    'remove_favorite_fail' => 'Xoá yêu thích thất bại',
 ];

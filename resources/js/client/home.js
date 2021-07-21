@@ -562,4 +562,60 @@ $(document).ready(function () {
         }
     });
 
+    // favorite
+    $('.add-my-favorite').on('click', function () {
+        var id = $(this).data('product-id');
+
+        $.ajax({
+            method: 'POST',
+            url: '/favorite/' + id,
+            success: function (data) {
+                if (typeof data.message_success !== 'undefined') {
+                    $('#count_favorite').text(parseInt($('#count_favorite').text()) + 1);
+                }
+            },
+        });
+    });
+
+    // favorite
+    $('#modalFavorite').on('click', function () {
+        $.ajax({
+            method: 'GET',
+            url: '/favorite',
+            success: function (data) {
+                var html = '';
+                if (Object.keys(data).length > 0) {
+                    Object.keys(data).forEach(key => {
+                        html += '<tr id="favorite-'+ data[key].id +'">' +
+                                '<td class="w-25"><img src="/storage/'+ data[key].image +'" class="img-fluid img-thumbnail" alt="Sheep"></td>' +
+                                '<td>'+ data[key].name +'</td>' +
+                                '<td>'+ data[key].price +' vnd</td>' +
+                                '<td>' +
+                                '<a class="add-to-cart" data-product-id="'+ data[key].id +'"><i class="fas fa-shopping-cart fa-2x cursor"></i></a>' +
+                                '</td>' +
+                                '<td>' +
+                                '<a class="btn btn-danger cursor btn-remove-favorite" data-product-id="'+ data[key].id +'">' +
+                                '<i class="fa fa-times"></i>' +
+                                '</a>' +
+                                '</td>' +
+                                '</tr>';
+                    });
+                }
+                $('#list_favorite').html(html);
+            }
+        })
+    });
+
+    $('body').on('click', '.btn-remove-favorite', function () {
+        var id = $(this).data('product-id');
+
+        $.ajax({
+            method: 'DELETE',
+            url: '/favorite/' + id,
+            success: function () {
+                $('#favorite-' + id).remove();
+                $('#count_favorite').text(parseInt($('#count_favorite').text()) -1);
+            }
+        })
+    });
 });

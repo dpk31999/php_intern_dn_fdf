@@ -43,6 +43,7 @@
 	@include('partials.register')
     @include('partials.forgot')
     @include('partials.cart')
+    @include('partials.favorite')
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fas fa-plane"
             aria-hidden="true"></i></a>

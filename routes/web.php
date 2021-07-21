@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -48,6 +49,10 @@ Route::middleware('auth:web')->group(function () {
 
     Route::get('/suggest', [SuggestController::class, 'index'])->name('suggest.index');
     Route::post('/suggest', [SuggestController::class, 'store']);
+
+    Route::get('/favorite', [FavoriteController::class, 'index']);
+    Route::post('/favorite/{product}', [FavoriteController::class, 'storeFavorite']);
+    Route::delete('/favorite/{product}', [FavoriteController::class, 'destroy']);
 });
 
 Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);
