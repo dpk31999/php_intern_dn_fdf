@@ -101,4 +101,12 @@ return [
     'fri' => 'Thứ sáu',
     'sat' => 'Thứ bảy',
     'sun' => 'Chủ nhật',
+
+    'notify' => 'Thông báo',
+    'message_order_pending' => 'Cảm ơn bạn đã mua hàng, xin vui lòng
+    đợi chúng tôi xác nhận đơn đặt hàng của bạn',
+    'message_order_done' => 'Cám ơn vì đã mua hàng,
+    đơn đặt hàng của bạn đã được xác nhận và chúng tôi sẽ giao hàng trong thời gian sớm nhất có thể',
+    'message_order_cancel' => 'Cám ơn vì đã mua hàng,
+    đơn đặt hàng của bạn đã bị hủy vì một số lý do',
 ];

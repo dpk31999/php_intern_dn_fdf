@@ -11,4 +11,6 @@ interface IOrderRepository
     public function cancelOrderOfCurrentUser($id);
 
     public function handleCheckout($cart);
+
+    public function updateOrder($data, $id);
 }

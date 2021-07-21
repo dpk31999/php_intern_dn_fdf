@@ -105,4 +105,14 @@ class User extends Authenticatable
 
         return false;
     }
+
+    public function getCountFavoriteAttribute()
+    {
+        return $this->favoriteProducts->count();
+    }
+
+    public function getCountNotifyUnReadAttribute()
+    {
+        return $this->notifications()->where('read_at', null)->count();
+    }
 }

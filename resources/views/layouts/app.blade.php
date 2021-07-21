@@ -45,6 +45,7 @@
     @include('partials.forgot')
     @include('partials.cart')
     @include('partials.favorite')
+    @include('partials.notify')
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;"><i class="fas fa-plane"
             aria-hidden="true"></i></a>

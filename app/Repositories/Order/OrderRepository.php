@@ -2,9 +2,12 @@
 
 namespace App\Repositories\Order;
 
+use App\Models\Admin;
 use App\Models\Order;
 use App\Events\SendMailOrderUser;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\UserSubmitOrderNotification;
 
 class OrderRepository extends BaseRepository implements IOrderRepository
 {
@@ -18,7 +21,7 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $orders = $this->model::with([
             'user',
         ])->withCount('orderDetails')->orderBy('status', 'desc')
-        ->paginate(config('app.number_paginate'));
+            ->paginate(config('app.number_paginate'));
 
         return $orders;
     }
@@ -53,6 +56,9 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         event(new SendMailOrderUser($order));
         $order->totalPrice = $order->total_price;
 
+        $this->currentUser()
+            ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
+
         return $order;
     }
 
@@ -69,6 +75,27 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         }
         event(new SendMailOrderUser($order));
 
+        $this->currentUser()
+            ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_pending')));
+
+        Notification::send(Admin::all(), new UserSubmitOrderNotification($order, ''));
+
         session()->forget('cart');
+    }
+
+    public function updateOrder($data, $id)
+    {
+        $order = $this->findOrFail($id);
+        $order->status = $data['status'];
+        $order->save();
+
+        event(new SendMailOrderUser($order));
+        if ($order->status == config('app.status_order.done')) {
+            $order->user
+                ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_done')));
+        } elseif ($order->status == config('app.status_order.cancel')) {
+            $order->user
+                ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
+        }
     }
 }

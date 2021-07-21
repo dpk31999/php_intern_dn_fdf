@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Events\SendMailOrderUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StatusRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\UserSubmitOrderNotification;
 
 class OrderController extends Controller
 {
@@ -84,9 +86,7 @@ class OrderController extends Controller
         if ($request->old_status !== config('app.status_order.pending')) {
             return redirect()->back()->with('error-message', trans('order.no_access'));
         } else {
-            $this->orderRepository->update($order->id, $request->all());
-
-            event(new SendMailOrderUser($order));
+            $this->orderRepository->updateOrder($request->all(), $order->id);
 
             return redirect()->back()->with('message', trans('order.update-order-success'));
         }

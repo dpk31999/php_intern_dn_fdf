@@ -101,4 +101,12 @@ return [
     'fri' => 'Friday',
     'sat' => 'Saturday',
     'sun' => 'Sunday',
+
+    'notify' => 'Notifications',
+    'message_order_pending' => 'Thank you for your purchase, please
+    wait for us to confirm your order',
+    'message_order_done' => 'Thank you for your purchase,
+    your order has been confirmed and we will ship it as soon as possible',
+    'message_order_cancel' => 'Thank you for your purchase,
+    your order was canceled for some reason',
 ];
