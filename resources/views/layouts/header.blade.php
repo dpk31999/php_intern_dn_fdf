@@ -33,7 +33,8 @@
                                         @lang('auth.logout')
                                     </a>
                                 </form>
-                                <a class="dropdown-item" href="{{ route('profile.index') }}">@lang('users.profile')</a>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">@lang('homepage.profile')</a>
+                                <a class="dropdown-item" href="{{ route('order.index') }}">@lang('homepage.order_history')</a>
                             </div>
                         </li>
                     @endguest
