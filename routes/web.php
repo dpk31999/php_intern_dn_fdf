@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
@@ -53,6 +54,11 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/favorite', [FavoriteController::class, 'index']);
     Route::post('/favorite/{product}', [FavoriteController::class, 'storeFavorite']);
     Route::delete('/favorite/{product}', [FavoriteController::class, 'destroy']);
+
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/order/{type}/type', [OrderController::class, 'getByType']);
+    Route::put('/order/{order}', [OrderController::class, 'cancelOrder']);
 });
 
 Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);
