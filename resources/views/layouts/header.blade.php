@@ -16,12 +16,6 @@
                     <li class="nav-item {{ Route::is('home') ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}">@lang('homepage.home')</a></li>
                     <li class="nav-item {{ Route::is('menu') ? 'active' : '' }}"><a class="nav-link" href="{{ route('menu') }}">@lang('homepage.menu')</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('suggest.index') }}">@lang('homepage.suggest')</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center cursor" data-toggle="modal" data-target="#cartModal">
-                            @lang('homepage.cart') <span class="badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
-                        </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="">@lang('homepage.check_out')</a></li>
                     @guest('web')
                         <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalLogin">@lang('homepage.login')</a></li>
                         <li class="nav-item"><a class="nav-link cursor" data-toggle="modal" data-target="#modalRegister">@lang('homepage.register')</a></li>
@@ -34,16 +28,47 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <form id="logout-form" method="POST">
                                     @csrf
-                                    <a class="dropdown-item cursor"><button class="btn btn-outline-light">
+                                    <a class="btn-logout dropdown-item cursor">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         @lang('auth.logout')
-                                    </button>
                                     </a>
                                 </form>
                                 <a class="dropdown-item" href="{{ route('profile.index') }}">@lang('users.profile')</a>
                             </div>
                         </li>
                     @endguest
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            @switch(session()->get('locale'))
+                                @case('us')
+                                <img class="w-50" src="{{asset('storage/img/usa.png')}}">
+                                @break
+                                @case('vi')
+                                <img class="w-50" src="{{asset('storage/img/vn.png')}}">
+                                @break
+                                @default
+                                <img class="w-50" src="{{asset('storage/img/usa.png')}}">
+                            @endswitch
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('locale', 'en') }}"><img src="{{asset('storage/img/usa.png')}}" width="23%"> English</a>
+                            <a class="dropdown-item" href="{{ route('locale', 'vi') }}"><img src="{{asset('storage/img/vn.png')}}" width="23%"> Việt Nam</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link icon-parent cursor" data-toggle="modal" data-target="#cartModal">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="icon-child badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link icon-parent cursor" data-toggle="modal" data-target="#cartModal">
+                            <i class="fas fa-heart"></i>
+                            <span class="icon-child badge badge-success ml-2" id="nav_count">{{ session()->get('cart')->totalQuantity ?? '0' }}</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
