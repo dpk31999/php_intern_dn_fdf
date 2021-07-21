@@ -15,6 +15,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Auth\OAuthController;
+use App\Http\Controllers\NotifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/order/{type}/type', [OrderController::class, 'getByType']);
     Route::put('/order/{order}', [OrderController::class, 'cancelOrder']);
+
+    Route::get('/notifications/order', [NotifyController::class, 'getNotifyOrder']);
 });
 
 Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);

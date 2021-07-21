@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Events\SendMailOrderUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StatusRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\UserSubmitOrderNotification;
 
 class OrderController extends Controller
 {
@@ -83,6 +85,13 @@ class OrderController extends Controller
             $order->save();
 
             event(new SendMailOrderUser($order));
+            if ($order->status == 'Done') {
+                Auth::guard('web')->user()
+                ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_done')));
+            } elseif ($order->status == 'Cancel') {
+                Auth::guard('web')->user()
+                ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
+            }
 
             return redirect()->back()->with('message', trans('order.update-order-success'));
         }
