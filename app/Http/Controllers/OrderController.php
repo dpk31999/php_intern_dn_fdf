@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Pusher\Pusher;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Events\SendMailOrderUser;
@@ -42,6 +43,23 @@ class OrderController extends Controller
         event(new SendMailOrderUser($order));
         Auth::guard('web')->user()
         ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
+
+        $options = array(
+            'cluster' => 'ap1',
+            'encrypted' => true
+        );
+
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+            'order' => $order,
+            'message' => trans('homepage.message_order_cancel'),
+        ]);
 
         $order->totalPrice = $order->total_price;
 

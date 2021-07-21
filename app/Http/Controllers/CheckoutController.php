@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Throwable;
+use Pusher\Pusher;
 use App\Models\Cart;
 use App\Models\City;
 use Illuminate\Http\Request;
@@ -56,6 +57,8 @@ class CheckoutController extends Controller
                 ]);
             }
 
+            $order->user = $order->user;
+
             // send mail
             event(new SendMailOrderUser($order));
 
@@ -64,12 +67,30 @@ class CheckoutController extends Controller
 
             Notification::send(Admin::all(), new UserSubmitOrderNotification($order, ''));
 
+            $options = array(
+                'cluster' => 'ap1',
+                'encrypted' => true
+            );
+
+            $pusher = new Pusher(
+                env('PUSHER_APP_KEY'),
+                env('PUSHER_APP_SECRET'),
+                env('PUSHER_APP_ID'),
+                $options
+            );
+
+            $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+                'order' => $order,
+                'message' => trans('homepage.message_order_pending'),
+            ]);
+
             DB::commit();
 
             session()->forget('cart');
 
             return response()->json([
                 'message' => trans('checkout.success'),
+                'order' => $order,
             ], 200);
         } catch (Throwable $th) {
             DB::rollBack();

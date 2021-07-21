@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Pusher\Pusher;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Events\SendMailOrderUser;
@@ -84,13 +85,35 @@ class OrderController extends Controller
             $order->status = $request->status;
             $order->save();
 
+            $options = array(
+                'cluster' => 'ap1',
+                'encrypted' => true
+            );
+
+            $pusher = new Pusher(
+                env('PUSHER_APP_KEY'),
+                env('PUSHER_APP_SECRET'),
+                env('PUSHER_APP_ID'),
+                $options
+            );
+
             event(new SendMailOrderUser($order));
             if ($order->status == 'Done') {
                 Auth::guard('web')->user()
                 ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_done')));
+
+                $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+                    'order' => $order,
+                    'message' => trans('homepage.message_order_done'),
+                ]);
             } elseif ($order->status == 'Cancel') {
                 Auth::guard('web')->user()
                 ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
+
+                $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+                    'order' => $order,
+                    'message' => trans('homepage.message_order_cancel'),
+                ]);
             }
 
             return redirect()->back()->with('message', trans('order.update-order-success'));

@@ -33,6 +33,6 @@ class SendMailOrderUser
      */
     public function broadcastOn()
     {
-        //
+        return new PrivateChannel('send-message-order-'. $this->order->user->id);
     }
 }
