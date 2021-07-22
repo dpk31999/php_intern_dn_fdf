@@ -20,9 +20,14 @@ $(document).ready(function () {
         $('#toast_order_user').attr('data-id', data.order.id);
         $("#toast_order_user").toast("show");
         $('#nav_count_noti').text(parseInt($('#nav_count_noti').text()) + 1);
+        $('#toast_order_user').css('z-index', '1');
     });
 
     $('#toast_order_user').on('click', function () {
         window.location = '/order/' + $(this).data('id');
     });
+
+    $('#toast_order_user').on('hidden.bs.toast', function () {
+        $('#toast_order_user').css('z-index', '-1');
+    })
 });

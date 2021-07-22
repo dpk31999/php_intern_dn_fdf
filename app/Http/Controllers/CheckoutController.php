@@ -88,6 +88,10 @@ class CheckoutController extends Controller
             $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
                 'order' => $order,
                 'message' => trans('homepage.message_order_pending'),
+            ]);
+
+            $pusher->trigger('SendNotiForAdminWhenUserOrder', 'send-noti-user-order-admin', [
+                'order' => $order,
                 'message_to_admin' => trans('notification.message_admin'),
             ]);
 
