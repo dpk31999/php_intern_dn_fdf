@@ -1406,3 +1406,11 @@ span.messages__dot {
     right: 1rem;
     width: 300px;
 }
+
+.toast_order_noti {
+    position: fixed;
+    top: 5rem;
+    z-index: -1;
+    left: 15rem;
+    width: 300px;
+}

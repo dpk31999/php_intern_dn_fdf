@@ -29,4 +29,21 @@ $(document).ready(function () {
     $('#toast_order_user').on('hidden.bs.toast', function () {
         $('#toast_order_user').css('z-index', '-1');
     })
+
+    // notification order have not been confirm.
+    var channel = pusher.subscribe("SendNotifyOrderIsPendingForAdminEvent");
+    channel.bind("send-notification-order-pending", function (data) {
+        $('#message_order_pending').text(data.message);
+        $("#toast_order_pending").toast("show");
+        $('#toast_order_pending').css('z-index', '1');
+        $('#toast_order_pending').css('cursor', 'pointer');
+    });
+
+    $('#toast_order_pending').on('click', function () {
+        window.location = '/admin/orders';
+    });
+
+    $('#toast_order_pending').on('hidden.bs.toast', function () {
+        $('#toast_order_pending').css('z-index', '-1');
+    })
 });

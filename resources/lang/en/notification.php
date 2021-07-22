@@ -14,4 +14,6 @@ return [
 
     'update_noti_success' => 'Update notification success!',
     'update_noti_fail' => 'Update notification fail',
+    'noti_pending_order' => 'Notify orders that have not been confirm',
+    'mess_noti_pending_order' => 'There are :count orders that need you to confirm',
 ];

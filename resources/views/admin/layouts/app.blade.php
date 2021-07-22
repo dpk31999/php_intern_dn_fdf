@@ -116,6 +116,7 @@
         </div>
     </div>
     @include('admin.partials.toast-order')
+    @include('admin.partials.toast-noti')
 
     <script src="{{ asset('js/client/jquery.min.js') }}"></script>
     <script src="{{ asset('js/client/bootstrap.min.js') }}"></script>

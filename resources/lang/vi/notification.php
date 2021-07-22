@@ -14,4 +14,6 @@ return [
 
     'update_noti_success' => 'Cập nhật thông báo thành công!',
     'update_noti_fail' => 'Cập nhật thông tin thất bại',
+    'noti_pending_order' => 'Thông báo những đơn hàng chưa được duyệt',
+    'mess_noti_pending_order' => 'Có :count đơn hàng cần bạn duyệt',
 ];
