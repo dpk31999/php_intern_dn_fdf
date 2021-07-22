@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Throwable;
+use Carbon\Carbon;
 use Pusher\Pusher;
 use App\Models\Cart;
 use App\Models\City;
-use Illuminate\Http\Request;
 use App\Models\Admin;
+use Illuminate\Http\Request;
 use App\Events\SendMailOrderUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
+use App\Jobs\SendMailWhenUserCheckoutJob;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserSubmitOrderNotification;
 
@@ -58,6 +60,10 @@ class CheckoutController extends Controller
             }
 
             $order->user = $order->user;
+
+            $job = (new SendMailWhenUserCheckoutJob($order))
+            ->delay(Carbon::now()->addSeconds(3));
+            dispatch($job);
 
             // send mail
             event(new SendMailOrderUser($order));

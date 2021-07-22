@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Pusher\Pusher;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Events\SendMailOrderUser;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\SendMailWhenUserCheckoutJob;
 use App\Notifications\UserSubmitOrderNotification;
 
 class OrderController extends Controller
@@ -39,6 +41,10 @@ class OrderController extends Controller
 
         $order->status = config('app.status_order.cancel');
         $order->save();
+
+        $job = (new SendMailWhenUserCheckoutJob($order))
+        ->delay(Carbon::now()->addSeconds(3));
+        dispatch($job);
 
         event(new SendMailOrderUser($order));
         Auth::guard('web')->user()

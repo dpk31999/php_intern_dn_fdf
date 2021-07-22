@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use Pusher\Pusher;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use App\Events\SendMailOrderUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StatusRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Jobs\SendMailWhenUserCheckoutJob;
 use App\Notifications\UserSubmitOrderNotification;
 
 class OrderController extends Controller
@@ -96,6 +98,10 @@ class OrderController extends Controller
                 env('PUSHER_APP_ID'),
                 $options
             );
+
+            $job = (new SendMailWhenUserCheckoutJob($order))
+            ->delay(Carbon::now()->addSeconds(3));
+            dispatch($job);
 
             event(new SendMailOrderUser($order));
             if ($order->status == 'Done') {
