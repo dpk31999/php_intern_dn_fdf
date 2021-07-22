@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -19,5 +20,5 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 
 Broadcast::private('send-message-order-{id}', function ($user, $id) {
-    return $user->id == Order::find($id)->user->id;
+    return $user->id == Order::find($id)->user->id || Auth::guard('admin')->check();
 });

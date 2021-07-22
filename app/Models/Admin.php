@@ -22,4 +22,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function getCountNotifyUnReadAttribute()
+    {
+        return $this->notifications()->where('read_at', null)->count();
+    }
 }

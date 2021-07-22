@@ -57,6 +57,11 @@ return [
         'refuse' => 'Refuse',
     ],
 
+    'type_notify' => [
+        'read' => 'Read',
+        'unread' => 'Unread',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
