@@ -55,5 +55,7 @@ Route::namespace('Admin')->name('admin.')->group(function () {
 
         Route::post('/products/{product}/image', [ImageProductController::class, 'store'])->name('image.store');
         Route::delete('/products/{id}/image', [ImageProductController::class, 'destroy'])->name('image.destroy');
+
+        Route::resource('notifications', '\App\Http\Controllers\Admin\NotifyController');
     });
 });
