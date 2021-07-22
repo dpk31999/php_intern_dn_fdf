@@ -12,6 +12,7 @@ return [
 
     'phone' => 'Phone',
     'email' => 'Email',
+    'city' => 'City',
     'location' => 'Location',
     'about_us' => 'About Us',
     'misson' => 'Our mission is to serve our customers with the best products.',

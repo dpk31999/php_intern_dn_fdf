@@ -53,7 +53,7 @@
                     <hr>
                     <div class="form-group row mb-0">
                         <div class="col-md-8 d-flex flex-column justify-content-center m-auto">
-                            <a class="btn btn-primary cursor" href="{{ route('social.facebook.callback', 'facebook') }}">
+                            <a class="btn btn-primary cursor" href="{{ route('social.callback', 'facebook') }}">
                                 @lang('auth.login_fb')
                             </a>
 
