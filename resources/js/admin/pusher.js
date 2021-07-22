@@ -11,18 +11,22 @@ $(document).ready(function () {
         cluster: "ap1"
     });
 
-    var channel = pusher.subscribe("SendMailOrderUser");
-    var id = $('meta[name="id_user"]').attr("content");
-    channel.bind("send-message-order-" + id, function (data) {
+    var channel = pusher.subscribe("SendNotiForAdminWhenUserOrder");
+    channel.bind("send-noti-user-order-admin", function (data) {
         $('#order_id_toast').text(data.order.id);
         $('#status_toast').text(data.order.status);
         $('#message_order_toast').text(data.message_to_admin);
         $('#toast_order_user').attr('data-id', data.order.id);
         $("#toast_order_user").toast("show");
         $('#nav_count_noti').text(parseInt($('#nav_count_noti').text()) + 1);
+        $('#toast_order_user').css('z-index', '1');
     });
 
     $('#toast_order_user').on('click', function () {
         window.location = '/admin/orders/' + $(this).data('id');
     });
+
+    $('#toast_order_user').on('hidden.bs.toast', function () {
+        $('#toast_order_user').css('z-index', '-1');
+    })
 });

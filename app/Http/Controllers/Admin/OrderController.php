@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Order;
 use App\Repositories\Order\IOrderRepository;
 use Illuminate\Http\Request;
-use App\Events\SendMailOrderUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StatusRequest;
-use Illuminate\Support\Facades\Auth;
-use App\Notifications\UserSubmitOrderNotification;
 
 class OrderController extends Controller
 {

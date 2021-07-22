@@ -16,7 +16,7 @@
     <meta name="locale" content="{{ session()->get('locale') }}">
 
     <!-- Locale Session-->
-    <meta name="id_user" content="{{ Auth::guard('web')->user()->id ?? '' }}">
+    <meta name="id_user" content="{{ Auth::guard('admin')->user()->id ?? '' }}">
 
     <title>@lang('auth.title-admin')</title>
 
