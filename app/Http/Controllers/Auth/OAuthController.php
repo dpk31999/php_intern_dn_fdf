@@ -42,11 +42,6 @@ class OAuthController extends Controller
             ->first();
 
         if ($oauthProvider) {
-            $oauthProvider->update([
-                'access_token' => $user->token,
-                'refresh_token' => $user->refreshToken,
-            ]);
-
             return $oauthProvider->user;
         }
 
@@ -64,8 +59,10 @@ class OAuthController extends Controller
      */
     protected function createUser($provider, $sUser)
     {
+        $name = $sUser->getName() ?? $sUser->getNickname();
+
         $user = User::create([
-            'name' => $sUser->getName(),
+            'name' => $name,
             'email' => $sUser->getEmail(),
             'email_verified_at' => now(),
             'city' => '',
