@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\StatusRequest;
 use App\Models\Order;
 use App\Repositories\Order\IOrderRepository;
 use Illuminate\Http\Request;
@@ -78,7 +78,7 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(OrderRequest $request, Order $order)
+    public function update(StatusRequest $request, Order $order)
     {
         if ($request->old_status !== config('app.status_order.pending')) {
             return redirect()->back()->with('error-message', trans('order.no_access'));

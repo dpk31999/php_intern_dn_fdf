@@ -44,6 +44,11 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Cart\ICartRepository::class,
             \App\Repositories\Cart\CartRepository::class
         );
+
+        $this->app->singleton(
+            \App\Repositories\Suggest\ISuggestRepository::class,
+            \App\Repositories\Suggest\SuggestRepository::class
+        );
     }
 
     /**
