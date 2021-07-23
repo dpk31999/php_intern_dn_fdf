@@ -50,7 +50,7 @@ return [
     */
 
     'status_suggest' => [
-        'done' => 'Done',
+        'approve' => 'Approve',
         'pending' => 'Pending',
         'refuse' => 'Refuse',
     ],
