@@ -83,4 +83,9 @@ return [
 
     'email_exist' => 'Email đã tồn tại trong hệ thống.',
     'back_to_home' => 'Trở về trang chủ',
+
+    'thank_mail' => 'Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi !',
+    'your_product_bought' => 'Các sản phẩm đã thanh toán',
+    'your_order_done' => 'Đơn hàng của bạn đã thành công',
+    'your_order_cancel' => 'Đơn hàng của bạn đã bị huỷ',
 ];

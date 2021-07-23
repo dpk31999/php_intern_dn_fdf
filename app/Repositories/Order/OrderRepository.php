@@ -3,6 +3,7 @@
 namespace App\Repositories\Order;
 
 use App\Models\Order;
+use App\Events\SendMailOrderUser;
 use App\Repositories\BaseRepository;
 
 class OrderRepository extends BaseRepository implements IOrderRepository
@@ -49,6 +50,9 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $order->status = config('app.status_order.cancel');
         $order->save();
 
+        event(new SendMailOrderUser($order));
+        $order->totalPrice = $order->total_price;
+
         return $order;
     }
 
@@ -63,7 +67,7 @@ class OrderRepository extends BaseRepository implements IOrderRepository
                 'quantity' => $item->quantity,
             ]);
         }
-        // send mail
+        event(new SendMailOrderUser($order));
 
         session()->forget('cart');
     }
