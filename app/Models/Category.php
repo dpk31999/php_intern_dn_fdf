@@ -23,7 +23,7 @@ class Category extends Model
 
     public function suggestProducts()
     {
-        return $this->hasMany(Suggest::class, 'cate_id');
+        return $this->hasMany(Suggest::class, 'cate_id', 'id');
     }
 
     public function childCategories()
