@@ -57,12 +57,13 @@ class CheckoutController extends Controller
         try {
             $cart = $this->cartRepository->getCurrentCart();
 
-            $this->orderRepository->handleCheckout($cart);
+            $order = $this->orderRepository->handleCheckout($cart);
 
             DB::commit();
 
             return response()->json([
                 'message' => trans('checkout.success'),
+                'order' => $order,
             ], 200);
         } catch (Throwable $th) {
             DB::rollBack();

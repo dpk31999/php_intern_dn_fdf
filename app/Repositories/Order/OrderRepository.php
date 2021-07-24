@@ -8,9 +8,12 @@ use App\Events\SendMailOrderUser;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserSubmitOrderNotification;
+use App\Traits\PusherTrait;
 
 class OrderRepository extends BaseRepository implements IOrderRepository
 {
+    use PusherTrait;
+
     public function getModel()
     {
         return Order::class;
@@ -59,6 +62,13 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $this->currentUser()
             ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
 
+        $pusher = $this->connectPusher();
+
+        $pusher->trigger('SendMailOrderUser', 'send-message-order-' . $order->user->id, [
+            'order' => $order,
+            'message' => trans('homepage.message_order_cancel'),
+        ]);
+
         return $order;
     }
 
@@ -80,7 +90,16 @@ class OrderRepository extends BaseRepository implements IOrderRepository
 
         Notification::send(Admin::all(), new UserSubmitOrderNotification($order, ''));
 
+        $pusher = $this->connectPusher();
+
+        $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+            'order' => $order,
+            'message' => trans('homepage.message_order_pending'),
+        ]);
+
         session()->forget('cart');
+
+        return $order;
     }
 
     public function updateOrder($data, $id)
@@ -89,13 +108,25 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $order->status = $data['status'];
         $order->save();
 
+        $pusher = $this->connectPusher();
+
         event(new SendMailOrderUser($order));
         if ($order->status == config('app.status_order.done')) {
             $order->user
                 ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_done')));
+
+            $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+                'order' => $order,
+                'message' => trans('homepage.message_order_done'),
+            ]);
         } elseif ($order->status == config('app.status_order.cancel')) {
             $order->user
                 ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_cancel')));
+
+            $pusher->trigger('SendMailOrderUser', 'send-message-order-'. $order->user->id, [
+                'order' => $order,
+                'message' => trans('homepage.message_order_cancel'),
+            ]);
         }
     }
 }

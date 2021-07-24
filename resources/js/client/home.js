@@ -677,7 +677,6 @@ $(document).ready(function () {
                             '<td>'+ data.status +'</td>' +
                             btn_cancel;
                 $('#order-' + id).html(html);
-                $('#nav_count_noti').text(parseInt($('#nav_count_noti').text()) + 1);
             }
         })
     });

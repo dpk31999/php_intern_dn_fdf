@@ -321,3 +321,11 @@
   top: 3px;
   right: -3px;
 }
+
+.toast {
+  position: fixed;
+  z-index: 10;
+  top: 5rem;
+  right: 1rem;
+  width: 300px;
+}
