@@ -92,6 +92,8 @@ return [
 
     'chart_month_order' => 'Chart of user order product in current month',
     'chart_week_order' => 'Chart of user order product in current week',
+    'chart_rate_status' => 'Chart rate status of order',
+    'chart_rate_order_bought' => 'The chart shows the number of products purchased in each category',
     'view_in_month' => 'View in month',
     'view_in_week' => 'View in week',
 

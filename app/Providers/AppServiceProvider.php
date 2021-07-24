@@ -63,6 +63,8 @@ class AppServiceProvider extends ServiceProvider
         $charts->register([
             \App\Charts\TrackingUserOrder::class,
             \App\Charts\TrackingUserOrderInWeek::class,
+            \App\Charts\RateStatusOfOrder::class,
+            \App\Charts\OrderRateOfCategory::class,
         ]);
     }
 }

@@ -92,6 +92,8 @@ return [
 
     'chart_month_order' => 'Biểu đồ người dùng đặt hàng sản phẩm trong tháng hiện tại',
     'chart_week_order' => 'Biểu đồ người dùng đặt hàng sản phẩm trong tuần hiện tại',
+    'chart_rate_status' => 'Biểu đồ tỷ lệ của trạng thái đơn đặt hàng',
+    'chart_rate_order_bought' => 'Biểu đồ thể hiện  số lượng sản phẩm được mua của mỗi danh mục',
     'view_in_month' => 'Xem trong tháng',
     'view_in_week' => 'Xem trong tuần',
 

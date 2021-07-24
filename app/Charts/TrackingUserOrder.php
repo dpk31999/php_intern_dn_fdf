@@ -21,7 +21,9 @@ class TrackingUserOrder extends BaseChart
     {
         $totalDayOfCurrentMonth = date('t');
         $labels = [];
-        $datasets = [];
+        $totalOrder = [];
+        $orderDone = [];
+        $orderCancel = [];
 
         for ($i = 1; $i <= $totalDayOfCurrentMonth; $i++) {
             ${"day" . $i} = Carbon::now()->format('Y-m-' . $i);
@@ -33,16 +35,32 @@ class TrackingUserOrder extends BaseChart
                 $splitTime = explode('-', ${'day' . $i});
                 $betweenTime = [${"day" . ($i)}, $splitTime[0] . '-' . ($splitTime[1] + 1) . '-01'];
                 ${"orderIn" . $i . "Day"} = Order::whereBetween('created_at', $betweenTime)->count();
+                ${"orderDoneIn" . $i . "Day"} = Order::whereBetween('created_at', $betweenTime)
+                                                ->where('status', config('app.status_order.done'))
+                                                ->count();
+                ${"orderCancelIn" . $i . "Day"} = Order::whereBetween('created_at', $betweenTime)
+                                                ->where('status', config('app.status_order.cancel'))
+                                                ->count();
             } else {
                 $betweenTime = [${"day" . ($i)}, ${"day" . ($i + 1)}];
                 ${"orderIn" . $i . "Day"} = Order::whereBetween('created_at', $betweenTime)->count();
+                ${"orderDoneIn" . $i . "Day"} = Order::whereBetween('created_at', $betweenTime)
+                                                ->where('status', config('app.status_order.done'))
+                                                ->count();
+                ${"orderCancelIn" . $i . "Day"} = Order::whereBetween('created_at', $betweenTime)
+                                                ->where('status', config('app.status_order.cancel'))
+                                                ->count();
             }
 
-            $datasets[] = ${"orderIn" . $i . "Day"};
+            $totalOrder[] = ${"orderIn" . $i . "Day"};
+            $orderDone[] = ${"orderDoneIn" . $i . "Day"};
+            $orderCancel[] = ${"orderCancelIn" . $i . "Day"};
         }
 
         return Chartisan::build()
             ->labels($labels)
-            ->dataset('data', $datasets);
+            ->dataset('total', $totalOrder)
+            ->dataset('order done', $orderDone)
+            ->dataset('order cancel', $orderCancel);
     }
 }

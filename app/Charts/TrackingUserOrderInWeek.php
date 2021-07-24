@@ -39,6 +39,50 @@ class TrackingUserOrderInWeek extends BaseChart
         $orderInSat = Order::whereBetween('created_at', [$sat, $sun])->count();
         $orderInSun = Order::whereBetween('created_at', [$sun, $monNextWeek])->count();
 
+        $orderDoneInMon = Order::whereBetween('created_at', [$mon, $tue])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+        $orderDoneInTue = Order::whereBetween('created_at', [$tue, $wed])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+        $orderDoneInWed = Order::whereBetween('created_at', [$wed, $thu])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+        $orderDoneInThu = Order::whereBetween('created_at', [$thu, $fri])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+        $orderDoneInFri = Order::whereBetween('created_at', [$fri, $sat])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+        $orderDoneInSat = Order::whereBetween('created_at', [$sat, $sun])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+        $orderDoneInSun = Order::whereBetween('created_at', [$sun, $monNextWeek])
+            ->where('status', config('app.status_order.done'))
+            ->count();
+
+        $orderCancelInMon = Order::whereBetween('created_at', [$mon, $tue])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+        $orderCancelInTue = Order::whereBetween('created_at', [$tue, $wed])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+        $orderCancelInWed = Order::whereBetween('created_at', [$wed, $thu])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+        $orderCancelInThu = Order::whereBetween('created_at', [$thu, $fri])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+        $orderCancelInFri = Order::whereBetween('created_at', [$fri, $sat])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+        $orderCancelInSat = Order::whereBetween('created_at', [$sat, $sun])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+        $orderCancelInSun = Order::whereBetween('created_at', [$sun, $monNextWeek])
+            ->where('status', config('app.status_order.cancel'))
+            ->count();
+
         $labels = [
             trans('homepage.mon'),
             trans('homepage.tue'),
@@ -49,7 +93,7 @@ class TrackingUserOrderInWeek extends BaseChart
             trans('homepage.sun'),
         ];
 
-        $datasets = [
+        $totalOrder = [
             $orderInMon,
             $orderInTue,
             $orderInWed,
@@ -59,8 +103,30 @@ class TrackingUserOrderInWeek extends BaseChart
             $orderInSun,
         ];
 
+        $orderDone = [
+            $orderDoneInMon,
+            $orderDoneInTue,
+            $orderDoneInWed,
+            $orderDoneInThu,
+            $orderDoneInFri,
+            $orderDoneInSat,
+            $orderDoneInSun,
+        ];
+
+        $orderCancel = [
+            $orderCancelInMon,
+            $orderCancelInTue,
+            $orderCancelInWed,
+            $orderCancelInThu,
+            $orderCancelInFri,
+            $orderCancelInSat,
+            $orderCancelInSun,
+        ];
+
         return Chartisan::build()
             ->labels($labels)
-            ->dataset('data', $datasets);
+            ->dataset('total', $totalOrder)
+            ->dataset('order done', $orderDone)
+            ->dataset('order cancel', $orderCancel);
     }
 }
