@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\SendNotifyOrderIsPendingForAdminCommand',
         'App\Console\Commands\SendMailToAllAdminAboutAllOrderNoApproveCommand',
+        'App\Console\Commands\SendMailRemindUserOrder',
     ];
 
     /**
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('notify:send')->everyThirtyMinutesMinute();
         $schedule->command('mail:send-admin')->daily()->at('17:00');
+        $schedule->command('mail:remind-user')->daily();
     }
 
     /**
