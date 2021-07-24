@@ -12,6 +12,7 @@ return [
 
     'phone' => 'Số điện thoại',
     'email' => 'Email',
+    'city' => 'Thành phố',
     'location' => 'Địa điểm',
     'about_us' => 'Về chúng tôi',
     'misson' => 'Sứ mệnh của chúng tôi là mang đến cho khách hàng những sản phẩm tốt nhất',

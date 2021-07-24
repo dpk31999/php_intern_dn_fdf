@@ -49,7 +49,7 @@
                         <div class="w-100"></div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="country">@lang('users.city')</label>
+                                <label for="country">@lang('homepage.city')</label>
                                 <div class="select-wrap">
                                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                     <select id="cityInputCheckout" name="city" class="form-control">
