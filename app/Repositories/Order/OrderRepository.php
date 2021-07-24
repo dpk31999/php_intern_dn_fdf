@@ -2,13 +2,15 @@
 
 namespace App\Repositories\Order;
 
+use Carbon\Carbon;
 use App\Models\Admin;
 use App\Models\Order;
+use App\Traits\PusherTrait;
 use App\Events\SendMailOrderUser;
 use App\Repositories\BaseRepository;
+use App\Jobs\SendMailWhenUserCheckoutJob;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserSubmitOrderNotification;
-use App\Traits\PusherTrait;
 
 class OrderRepository extends BaseRepository implements IOrderRepository
 {
@@ -56,6 +58,10 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $order->status = config('app.status_order.cancel');
         $order->save();
 
+        $job = (new SendMailWhenUserCheckoutJob($order))
+        ->delay(Carbon::now()->addSeconds(3));
+        dispatch($job);
+
         event(new SendMailOrderUser($order));
         $order->totalPrice = $order->total_price;
 
@@ -83,6 +89,13 @@ class OrderRepository extends BaseRepository implements IOrderRepository
                 'quantity' => $item->quantity,
             ]);
         }
+
+        $job = (new SendMailWhenUserCheckoutJob($order))
+        ->delay(Carbon::now()->addSeconds(3));
+        dispatch($job);
+
+        $order->user = $order->user;
+
         event(new SendMailOrderUser($order));
 
         $this->currentUser()
@@ -110,6 +123,10 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $order->save();
 
         $pusher = $this->connectPusher();
+
+        $job = (new SendMailWhenUserCheckoutJob($order))
+        ->delay(Carbon::now()->addSeconds(3));
+        dispatch($job);
 
         event(new SendMailOrderUser($order));
         if ($order->status == config('app.status_order.done')) {
