@@ -18,7 +18,7 @@
     <!-- Locale Session-->
     <meta name="id_user" content="{{ Auth::guard('admin')->user()->id ?? '' }}">
 
-    <title>@lang('auth.title-admin')</title>
+    <title>@lang('auth.title_admin')</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 

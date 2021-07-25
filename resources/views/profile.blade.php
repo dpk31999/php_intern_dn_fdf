@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <div class="col-xs-6">
                                     <label for="city">
-                                        <h4>@lang('users.city')</h4>
+                                        <h4>@lang('homepage.city')</h4>
                                     </label>
                                     <select name="city" id="city" class="form-control">
                                         <option value="">@lang('users.no_choise')</option>

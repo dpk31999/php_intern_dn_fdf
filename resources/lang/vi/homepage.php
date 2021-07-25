@@ -47,7 +47,7 @@ return [
     'close' => 'Đóng',
 
     'profile' => 'Thông tin cá nhân',
-    'order_history' => 'Lịch sửa đơn hàng',
+    'order_history' => 'Lịch sử đơn hàng',
 
     'chose_child_cate' => 'Chọn danh mục con',
     'child_cate' => 'Danh mục con',

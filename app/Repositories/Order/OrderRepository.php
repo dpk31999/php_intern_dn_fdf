@@ -38,7 +38,7 @@ class OrderRepository extends BaseRepository implements IOrderRepository
 
     public function getOrderByType($type)
     {
-        if ($type === config('app.total')) {
+        if ($type === config('app.get_total')) {
             $orders = $this->getAllOrderOfCurrentUser();
         } else {
             $orders = $this->currentUser()->orders()->where('status', $type)->get();

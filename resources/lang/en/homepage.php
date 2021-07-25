@@ -47,7 +47,7 @@ return [
     'close' => 'Close',
 
     'profile' => 'Profile',
-    'orderd_history' => 'Order history',
+    'order_history' => 'Order history',
 
     'chosed_childd_cate' => 'Chose child category',
     'childd_cate' => 'Child categories',

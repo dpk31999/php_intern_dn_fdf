@@ -26,7 +26,7 @@
                                 <span>{{ Auth::guard('web')->user()->name }}</strong></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{ route('order.index') }}">@lang('homepage.order-history')</a>
+                                <a class="dropdown-item" href="{{ route('order.index') }}">@lang('homepage.order_history')</a>
                                 <div class="dropdown-item d-flex justify-content-between align-items-center">
                                     <a class="cursor" id="modalNotifyOpen" data-toggle="modal" data-target="#modalNotify">@lang('homepage.notify')</a>
                                     <div class="badge badge-success ml-2" id="nav_count_noti">{{ Auth::guard('web')->user()->count_notify_unread }}</div>
