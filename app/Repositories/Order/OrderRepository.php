@@ -101,7 +101,7 @@ class OrderRepository extends BaseRepository implements IOrderRepository
         $this->currentUser()
             ->notify(new UserSubmitOrderNotification($order, trans('homepage.message_order_pending')));
 
-        Notification::send(Admin::all(), new UserSubmitOrderNotification($order, ''));
+        Notification::send(Admin::all(), new UserSubmitOrderNotification($order, trans('homepage.new_order_message_admin')));
 
         $pusher = $this->connectPusher();
 

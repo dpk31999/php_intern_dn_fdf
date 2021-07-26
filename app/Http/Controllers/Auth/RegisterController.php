@@ -59,4 +59,13 @@ class RegisterController extends Controller
             'avatar_path' => '',
         ]);
     }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:8|max:255|confirmed',
+        ]);
+    }
 }

@@ -24,9 +24,9 @@
                         <table class="table table-st">
                             <thead class="color__theme">
                                 <tr>
-                                    <th>@lang('notification.order_id')</th>
-                                    <th>@lang('notification.user_name')</th>
-                                    <th>@lang('notification.status')</th>
+                                    <th>@lang('notification.type')</th>
+                                    <th>@lang('notification.message')</th>
+                                    <th>@lang('notification.send_at')</th>
                                     <th>@lang('notification.reat_at')</th>
                                     <th></th>
                                 </tr>
@@ -34,11 +34,12 @@
                             <tbody>
                                 @foreach ($notifications as $notify)
                                     <tr>
-                                        <td><a href="{{ route('admin.orders.show', $notify->data['order']['id']) }}">#{{ $notify->data['order']['id'] }}</a></td>
-                                        <td>{{ $notify->order->user->name }}</td>
-                                        <td>{{ $notify->order->status }}</td>
+                                        <td>@if (isset($notify->data['order'])) @lang('notification.order') @else @lang('notification.daily') @endif</td>
+                                        <td>{{ $notify->data['message'] }}</td>
+                                        <td>{{ $notify->created_at }}</td>
                                         <td>{{ $notify->read_at ?? trans('notification.unread') }}</td>
-                                        <td>
+                                        <td class="d-flex justify-content-center">
+                                            <a href="@if (isset($notify->data['order'])){{ route('admin.orders.show', $notify->data['order']['id']) }} @else {{ route('order.index') }} @endif" class="btn btn-primary mr-2">@lang('users.detail')</a>
                                             <form action="{{ route('admin.notifications.update', $notify->id) }}" method="post">
                                                 @csrf
                                                 @method('PUT')

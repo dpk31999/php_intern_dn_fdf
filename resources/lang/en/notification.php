@@ -16,4 +16,10 @@ return [
     'update_noti_fail' => 'Update notification fail',
     'noti_pending_order' => 'Notify orders that have not been confirm',
     'mess_noti_pending_order' => 'There are :count orders that need you to confirm',
+
+    'type' => 'Type notification',
+    'message' => 'Notification',
+    'order' => 'Order notification',
+    'daily' => 'Daily notification',
+    'send_at' => 'Created at',
 ];

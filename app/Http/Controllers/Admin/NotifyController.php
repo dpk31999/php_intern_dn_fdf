@@ -20,10 +20,6 @@ class NotifyController extends Controller
     {
         $notifications = Auth::guard('admin')->user()->notifications()->paginate();
 
-        foreach ($notifications as $notify) {
-            $notify->order = Order::find($notify->data['order']['id']);
-        }
-
         return view('admin.notifications.index', compact('notifications'));
     }
 

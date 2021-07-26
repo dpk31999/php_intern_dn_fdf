@@ -48,7 +48,7 @@ class CheckoutController extends Controller
 
         if ($this->cartRepository->checkCartIsEmpty()) {
             return response()->json([
-                'message' => trans('checkout.cart_is_empty'),
+                'message_empty_cart' => trans('checkout.cart_is_empty'),
             ], 200);
         }
 

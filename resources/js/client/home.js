@@ -71,7 +71,7 @@ $(document).ready(function () {
                         $("#" + key + "Error").children("strong").text(errors[key][0]);
                     });
                 } else {
-                    window.location.reload();
+                    console.log('error');
                 }
             }
         })
@@ -460,8 +460,17 @@ $(document).ready(function () {
             data: formData,
             success: function (response) {
                 $("#form_check_out input").val('');
-                $(".alert-checkout").children("strong").text(response.message);
-                $(".alert-checkout").removeClass('d-none');
+                if (typeof response.message_empty_cart !== 'undefined') {
+                    $(".alert-checkout").children("strong").text(response.message_empty_cart);
+                    $(".alert-checkout").removeClass('d-none');
+                } else {
+                    $(".alert-checkout").children("strong").text(response.message);
+                    $(".alert-checkout").removeClass('d-none');
+
+                    setTimeout(function () {
+                        window.location = '/order/' + response.order.id;
+                    }, 1000);
+                }
             },
             error: (response) => {
                 if (response.status === 422) {
@@ -693,16 +702,25 @@ $(document).ready(function () {
     $('#modalNotifyOpen').on('click', function () {
         $.ajax({
             method: 'GET',
-            url: '/notifications/order',
+            url: '/notifications',
             success: function (data) {
                 var html = '';
                 if (Object.keys(data).length > 0) {
                     Object.keys(data).forEach(key => {
-                        html += '<div class="row curs">' +
+                        var elementIfExistOrder = '';
+                        var cssIfUnRead = '';
+                        if (typeof data[key].data['order'] !== 'undefined') {
+                            elementIfExistOrder = '<div class="d-flex">' +
+                            '<a href="/order/'+ data[key].data['order']['id'] +'">#'+ data[key].data['order']['id'] +' '+ data[key].data['order']['status'] +'</a>' +
+                            '</div>';
+                        }
+                        if (!data[key].read_at) {
+                            cssIfUnRead = 'bg-info';
+                        }
+                        html += '<div class="row curs mt-2 mb-2 '+ cssIfUnRead +'">' +
                                 '<div class="col-sm-10">' +
-                                '<div class="d-flex">' +
-                                '<a href="/order/'+ data[key].data['order']['id'] +'">#'+ data[key].data['order']['id'] +' '+ data[key].data['order']['status'] +'</a>' +
-                                '</div>' +
+                                elementIfExistOrder
+                                +
                                 '<p>'+ data[key].data['message'] +'</p>' +
                                 '</div>' +
                                 '<div class="col-sm-2">' +
@@ -715,5 +733,15 @@ $(document).ready(function () {
                 $('#nav_count_noti').text(0);
             }
         })
+    });
+
+    $('#modalNotify').on('hidden.bs.modal', function (e) {
+        $.ajax({
+            method: 'GET',
+            url: '/notifications/read-all',
+            success: function (data) {
+                //
+            }
+        });
     });
 });

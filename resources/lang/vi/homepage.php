@@ -112,4 +112,5 @@ return [
     đơn đặt hàng của bạn đã được xác nhận và chúng tôi sẽ giao hàng trong thời gian sớm nhất có thể',
     'message_order_cancel' => 'Cám ơn vì đã mua hàng,
     đơn đặt hàng của bạn đã bị hủy vì một số lý do',
+    'new_order_message_admin' => 'Có một đơn hàng mới cần bạn duyệt',
 ];

@@ -16,4 +16,10 @@ return [
     'update_noti_fail' => 'Cập nhật thông tin thất bại',
     'noti_pending_order' => 'Thông báo những đơn hàng chưa được duyệt',
     'mess_noti_pending_order' => 'Có :count đơn hàng cần bạn duyệt',
+
+    'type' => 'Loại thông báo',
+    'message' => 'Thông báo',
+    'order' => 'Thông báo đơn hàng',
+    'daily' => 'Thông báo hàng ngày',
+    'send_at' => 'Gửi vào lúc',
 ];

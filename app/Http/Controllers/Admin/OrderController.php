@@ -85,7 +85,7 @@ class OrderController extends Controller
         } else {
             $this->orderRepository->updateOrder($request->all(), $order->id);
 
-            return redirect()->back()->with('message', trans('order.update-order-success'));
+            return redirect()->back()->with('message', trans('order.update_order_success'));
         }
     }
 

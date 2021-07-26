@@ -62,7 +62,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/order/{type}/type', [OrderController::class, 'getByType']);
     Route::put('/order/{order}', [OrderController::class, 'cancelOrder']);
 
-    Route::get('/notifications/order', [NotifyController::class, 'getNotifyOrder']);
+    Route::get('/notifications', [NotifyController::class, 'getNotifyOrder']);
+    Route::get('/notifications/read-all', [NotifyController::class, 'readAllNotify']);
 });
 
 Route::get('/category/{category}/child', [CategoryController::class, 'getChildCate']);

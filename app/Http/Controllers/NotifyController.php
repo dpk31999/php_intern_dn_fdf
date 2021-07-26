@@ -11,6 +11,13 @@ class NotifyController extends Controller
     {
         $notifications = Auth::guard('web')->user()->notifications;
 
+        return response()->json($notifications, 200);
+    }
+
+    public function readAllNotify()
+    {
+        $notifications = Auth::guard('web')->user()->notifications;
+
         foreach ($notifications as $notify) {
             $notify->markAsRead();
         }

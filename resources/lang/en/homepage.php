@@ -112,4 +112,5 @@ return [
     your order has been confirmed and we will ship it as soon as possible',
     'message_order_cancel' => 'Thank you for your purchase,
     your order was canceled for some reason',
+    'new_order_message_admin' => 'There\'s a new order that needs your approval',
 ];
