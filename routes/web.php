@@ -36,6 +36,7 @@ Route::get('/menu/get-product-by-cate-id/{id}', [MenuController::class, 'getProd
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::post('/products/{product}/rating', [ProductController::class, 'createRating']);
 Route::get('/products/{product}/rating/{num_rate}', [ProductController::class, 'getSpecifyRating']);
+Route::get('/products/filter/{select}/get-by/{type}', [ProductController::class, 'getProductFilter']);
 
 Route::post('/cart/{product}/add', [CartController::class, 'store']);
 Route::put('/cart/{product}/update', [CartController::class, 'update']);

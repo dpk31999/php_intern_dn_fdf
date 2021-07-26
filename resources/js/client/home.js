@@ -744,4 +744,36 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.select-filter').on('click', function () {
+        var type = $(this).data('type');
+        var select = $(this).val();
+
+        $.ajax({
+            method: 'GET',
+            url: '/products/filter/' + select + '/get-by/' + type,
+            success: function (data) {
+                var html = '';
+                if (Object.keys(data).length > 0) {
+                    Object.keys(data).forEach(key => {
+                        html += '<div class="col-lg-4 col-md-6 special-grid dinner">' +
+                                '<div class="gallery-single fix">' +
+                                '<img src="/storage/'+ data[key].image +'" alt="Image" width="254" height="152">' +
+                                '<div class="why-text">' +
+                                '<h4>'+ data[key].name +'</h4>' +
+                                '<p>'+ message + ': ' + data[key].avg_rating + '* (' + data[key].ratings.length + ')' + '</p>' +
+                                '<div class="d-flex justify-content-around">' +
+                                '<h5>'+ data[key].price +' vnd</h5>' +
+                                '<a href="/products/'+ data[key].id +'"><i class="fas fa-eye cursor"></i></a>' +
+                                '<a class="add-to-cart" data-product-id="'+ data[key].id +'"><i class="fas fa-shopping-cart cursor"></i></a>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>'
+                    });
+                }
+                $('#list_product_of_' + type).html(html);
+            }
+        })
+    });
 });

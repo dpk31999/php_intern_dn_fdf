@@ -66,6 +66,7 @@ class CheckoutController extends Controller
                 'order' => $order,
             ], 200);
         } catch (Throwable $th) {
+            dd($th);
             DB::rollBack();
 
             return response()->json([

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\RatingRequest;
+use App\Models\Category;
 use App\Repositories\Product\IProductRepository;
 use Illuminate\Support\Facades\Auth;
 
@@ -82,6 +83,13 @@ class ProductController extends Controller
         $ratings = $this->productRepository->getSpecifyRating($product->id, $num_rate);
 
         return response()->json($ratings, 200);
+    }
+
+    public function getProductFilter($select, $type)
+    {
+        $products = $this->productRepository->getProductFilter($select, $type);
+
+        return response()->json($products, 200);
     }
 
     /**

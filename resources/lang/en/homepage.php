@@ -113,4 +113,10 @@ return [
     'message_order_cancel' => 'Thank you for your purchase,
     your order was canceled for some reason',
     'new_order_message_admin' => 'There\'s a new order that needs your approval',
+
+    'order_by' => 'Order by',
+    'newest' => 'Newest',
+    'most_interest' => 'Most interest',
+    'high_to_low' => 'High to low price',
+    'low_to_high' => 'Low to high price',
 ];

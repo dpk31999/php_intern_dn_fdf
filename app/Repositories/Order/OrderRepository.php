@@ -25,7 +25,7 @@ class OrderRepository extends BaseRepository implements IOrderRepository
     {
         $orders = $this->model::with([
             'user',
-        ])->withCount('orderDetails')->orderBy('status', 'desc')
+        ])->withCount('orderDetails')->orderBy('created_at', 'desc')
             ->paginate(config('app.number_paginate'));
 
         return $orders;

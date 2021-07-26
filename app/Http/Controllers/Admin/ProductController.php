@@ -100,7 +100,7 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         try {
-            $this->productRepository->update($product->id, $request->all());
+            $this->productRepository->updateProduct($request->all(), $product->id);
 
             return redirect()->route('admin.products.index')->with('message', trans('products.message_update_success'));
         } catch (Throwable $e) {

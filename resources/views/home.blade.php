@@ -66,13 +66,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="heading-title text-center">
+                <div class="text-center">
                     <h2>@lang('homepage.special_menu')</h2>
                     <p>@lang('homepage.menu_discription')</p>
                 </div>
             </div>
         </div>
-
         <div class="row inner-menu-box">
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -87,6 +86,20 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <div class="row">
+                            <div class="col d-flex justify-content-end mb-2">
+                                <div class="col-sm-4">
+                                    <select data-type="Total" class="custom-select select-filter">
+                                        <option value="" selected>@lang('checkout.not_chose')</option>
+                                        <option value="newest">@lang('homepage.order_by') @lang('homepage.newest')</option>
+                                        <option value="best_selling">@lang('homepage.order_by') @lang('homepage.best_selling')</option>
+                                        <option value="most_interest">@lang('homepage.order_by') @lang('homepage.most_interest')</option>
+                                        <option value="high_to_low">@lang('homepage.order_by') @lang('homepage.high_to_low')</option>
+                                        <option value="low_to_high">@lang('homepage.order_by') @lang('homepage.low_to_high')</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="list_product_of_Total">
                             @foreach ($categories as $cate)
                                 @foreach ($cate->products as $product)
                                     <div class="col-lg-4 col-md-6 special-grid dinner">
@@ -111,6 +124,20 @@
                     @foreach ($categories as $cate)
                         <div class="tab-pane fade" id="v-pills-{{ $cate->id }}" role="tabpanel" aria-labelledby="v-pills-{{ $cate->id }}-tab">
                             <div class="row">
+                                <div class="col d-flex justify-content-end mb-2">
+                                    <div class="col-sm-4">
+                                        <select data-type="{{ $cate->id }}" class="custom-select select-filter">
+                                            <option value="" selected>@lang('checkout.not_chose')</option>
+                                            <option value="newest">@lang('homepage.order_by') @lang('homepage.newest')</option>
+                                            <option value="best_selling">@lang('homepage.order_by') @lang('homepage.best_selling')</option>
+                                            <option value="most_interest">@lang('homepage.order_by') @lang('homepage.most_interest')</option>
+                                            <option value="high_to_low">@lang('homepage.order_by') @lang('homepage.high_to_low')</option>
+                                            <option value="low_to_high">@lang('homepage.order_by') @lang('homepage.low_to_high')</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="list_product_of_{{ $cate->id }}">
                                 @foreach ($cate->products as $product)
                                     <div class="col-lg-4 col-md-6 special-grid drinks">
                                         <div class="gallery-single fix">

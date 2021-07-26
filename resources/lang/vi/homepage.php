@@ -113,4 +113,10 @@ return [
     'message_order_cancel' => 'Cám ơn vì đã mua hàng,
     đơn đặt hàng của bạn đã bị hủy vì một số lý do',
     'new_order_message_admin' => 'Có một đơn hàng mới cần bạn duyệt',
+
+    'order_by' => 'Xếp theo:',
+    'newest' => 'Mới nhất',
+    'most_interest' => 'Quan tâm nhất',
+    'high_to_low' => 'Giá cao đến thấp',
+    'low_to_high' => 'Giá thấp đến cao',
 ];

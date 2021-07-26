@@ -22,9 +22,25 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
+        $date = $this->randomDate();
         return [
             'user_id' => User::all()->random()->id,
-            'status' => ['done','pending'][array_rand(['done','pending'])],
+            'status' => ['Done','Pending','Cancel'][array_rand(['Done','Pending','Cancel'])],
+            'created_at' => $date,
+            'updated_at' => $date,
         ];
+    }
+
+    function randomDate()
+    {
+        $start_date = date('Y-m-01');
+        $end_date  = date("Y-m-d");
+
+        $min = strtotime($start_date);
+        $max = strtotime($end_date);
+
+        $val = rand($min, $max);
+
+        return date('Y-m-d H:i:s', $val);
     }
 }
