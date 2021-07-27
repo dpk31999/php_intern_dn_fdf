@@ -572,7 +572,7 @@ $(document).ready(function () {
     });
 
     // favorite
-    $('.add-my-favorite').on('click', function () {
+    $(document).on('click', '.add-my-favorite', function () {
         var id = $(this).data('product-id');
 
         $.ajax({
@@ -583,6 +583,11 @@ $(document).ready(function () {
                     $('#count_favorite').text(parseInt($('#count_favorite').text()) + 1);
                 }
             },
+            error: function (response) {
+                if (response.status === 401) {
+                    $('#modalLogin').modal('show');
+                }
+            }
         });
     });
 
@@ -749,6 +754,12 @@ $(document).ready(function () {
         var type = $(this).data('type');
         var select = $(this).val();
 
+        var locale = $('meta[name="locale"]').attr('content');
+
+        var message;
+
+        locale == 'en' ? message = 'Avarage rate of product' : message = 'Đánh giá trung bình';
+
         $.ajax({
             method: 'GET',
             url: '/products/filter/' + select + '/get-by/' + type,
@@ -758,13 +769,14 @@ $(document).ready(function () {
                     Object.keys(data).forEach(key => {
                         html += '<div class="col-lg-4 col-md-6 special-grid dinner">' +
                                 '<div class="gallery-single fix">' +
-                                '<img src="/storage/'+ data[key].image +'" alt="Image" width="254" height="152">' +
+                                '<img src="/storage/'+ data[key].image +'" alt="Image" class="img-fluid img-thumbnail">' +
                                 '<div class="why-text">' +
                                 '<h4>'+ data[key].name +'</h4>' +
                                 '<p>'+ message + ': ' + data[key].avg_rating + '* (' + data[key].ratings.length + ')' + '</p>' +
-                                '<div class="d-flex justify-content-around">' +
                                 '<h5>'+ data[key].price +' vnd</h5>' +
+                                '<div class="d-flex justify-content-around">' +
                                 '<a href="/products/'+ data[key].id +'"><i class="fas fa-eye cursor"></i></a>' +
+                                '<a class="add-my-favorite" data-product-id="'+ data[key].id +'"><i class="fas fa-heart cursor"></i></a>' +
                                 '<a class="add-to-cart" data-product-id="'+ data[key].id +'"><i class="fas fa-shopping-cart cursor"></i></a>' +
                                 '</div>' +
                                 '</div>' +

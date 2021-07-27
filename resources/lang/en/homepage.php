@@ -119,4 +119,10 @@ return [
     'most_interest' => 'Most interest',
     'high_to_low' => 'High to low price',
     'low_to_high' => 'Low to high price',
+
+    'chart_statistics_revenue' => 'Statistical chart of revenue by month',
+    'month' => 'Month',
+    'year' => 'Year',
+    'revenue' => 'Revenue',
+    'filter' => 'Filter',
 ];

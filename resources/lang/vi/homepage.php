@@ -119,4 +119,10 @@ return [
     'most_interest' => 'Quan tâm nhất',
     'high_to_low' => 'Giá cao đến thấp',
     'low_to_high' => 'Giá thấp đến cao',
+
+    'chart_statistic_revenue' => 'Biểu đồ thống kê doanh thu theo tháng',
+    'month' => 'Tháng',
+    'year' => 'Năm',
+    'revenue' => 'Doanh thu',
+    'filter' => 'Lọc',
 ];

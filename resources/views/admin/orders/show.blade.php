@@ -34,7 +34,23 @@
                                             <h5 class="text-center"><strong>@lang('homepage.order_status')</strong</h5>
                                         </td>
                                         <td class="shoping__cart__price">
-                                            <h5 class="text-center">{{ $order->status }}</h5>
+                                            <form method="POST" class="row d-flex justify-content-center" action="{{ route('admin.orders.update', $order->id) }}">
+                                                @csrf
+                                                @method('PUT')
+                                                <select @if ($order->status !== 'Pending') disabled @endif name="status" id="status" class="form-control col-md-5">
+                                                    @foreach (config('app.status_order') as $key => $value)
+                                                        <option value="{{ $value }}" {{ $order->status == $value ? 'selected' : '' }}>
+                                                            @lang('order.'. $key)
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @if ($order->status == 'Pending')
+                                                    <div class="col-md-5">
+                                                        <button type="submit" class="btn btn-success">@lang('products.update')</button>
+                                                    </div>
+                                                @endif
+                                                <input type="hidden" name="old_status" value="{{ $order->status }}">
+                                            </form>
                                         </td>
                                     </tr>
                                 </tbody>
